@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/list/list",
+    "pages/shopping-cart/shopping-cart",
+    "pages/mine/mine"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#636263",
+    "selectedColor": "#636263",
+    "spacing": "3px",
+    "iconfontSrc": "static/iconfont.ttf",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/tabbar/首页未选中.png",
+        "selectedIconPath": "static/tabbar/首页选中.png"
+      },
+      {
+        "pagePath": "pages/list/list",
+        "text": "分类",
+        "iconPath": "static/tabbar/分类未选中.png",
+        "selectedIconPath": "static/tabbar/分类选中.png"
+      },
+      {
+        "pagePath": "pages/shopping-cart/shopping-cart",
+        "text": "购物车",
+        "iconPath": "static/tabbar/gouwuche1.png",
+        "selectedIconPath": "static/tabbar/gouwuche.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "static/tabbar/我的未选中.png",
+        "selectedIconPath": "static/tabbar/我的选中.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}
