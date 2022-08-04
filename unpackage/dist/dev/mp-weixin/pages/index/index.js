@@ -239,6 +239,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
 {
   data: function data() {
     return {
@@ -247,9 +251,11 @@ __webpack_require__.r(__webpack_exports__);
       //顶栏跟随的索引id值
       scrollIntoIndex: 'top0',
       //顶栏数据
-      topBar: [{ name: '推荐' }, { name: '运动户外' }, { name: '服饰内衣' }, { name: '鞋靴箱包' }, { name: '美妆个护' }, { name: '家居数码' }, { name: '食品母婴' }],
+      topBar: [],
       //内容块的高度值
-      contentBlockHeight: 0 };
+      contentBlockHeight: 0,
+      //承载数据
+      newTopBar: [] };
 
   },
   components: {
@@ -263,23 +269,42 @@ __webpack_require__.r(__webpack_exports__);
     Shop: Shop },
 
   onLoad: function onLoad() {
-    uni.request({
-      url: "/api/index_list/data",
-      success: function success(res) {
-        console.log(res);
-      } });
-
+    this.__init();
   },
   onReady: function onReady() {var _this = this;
     var view = uni.createSelectorQuery().select('.home-data');
     //获取view节点的属性
     view.
     boundingClientRect(function (data) {
-      _this.contentBlockHeight = data.height;
+      _this.contentBlockHeight = 3000;
     }).
     exec();
   },
   methods: {
+    __init: function __init() {var _this2 = this;
+      uni.request({
+        url: '/api/index_list/data',
+        success: function success(res) {
+          var data = res.data.data;
+          _this2.topBar = data.topBar;
+          _this2.newTopBar = _this2.initData(data);
+        } });
+
+    },
+    initData: function initData(res) {
+      var arr = [];
+      for (var i = 0; i < this.topBar.length; i++) {
+        var obj = {
+          data: [] };
+
+        //获取首次数据
+        if (i === 0) {
+          obj.data = res.data;
+        }
+        arr.push(obj);
+      }
+      return arr;
+    },
     changeTab: function changeTab(index) {
       if (this.topBarIndex === index) {
         return;
