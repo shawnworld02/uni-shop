@@ -9,11 +9,14 @@
 			</template>
 		</uni-nav-bar>
 
-		<IndexSwiper></IndexSwiper>
+		<!-- <IndexSwiper></IndexSwiper>
 		<Recommend></Recommend>
 		<Card cardTitle="猜你喜欢"></Card>
-		<CommodityList></CommodityList>
+		<CommodityList></CommodityList> -->
 		<Banner></Banner>
+		<Icons></Icons>
+		<Card cardTitle="热 销 爆 品"></Card>
+		<Hot></Hot>
 	</view>
 </template>
 
@@ -23,6 +26,8 @@ import Recommend from '@/components/index/Recommend.vue';
 import Card from '@/components/common/Card.vue';
 import CommodityList from '@/components/common/CommodityList.vue'
 import Banner from '@/components/index/Banner.vue';
+import Icons from '@/components/index/Icons.vue';
+import Hot from '@/components/index/Hot.vue';
 export default {
 	data() {
 		return {};
@@ -32,7 +37,9 @@ export default {
 		Recommend,
 		Card,
 		CommodityList,
-		Banner
+		Banner,
+		Icons,
+		Hot
 	},
 	onLoad() {},
 	methods: {}

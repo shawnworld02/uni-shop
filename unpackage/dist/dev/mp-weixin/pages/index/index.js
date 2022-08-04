@@ -159,7 +159,12 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var IndexSwiper = function IndexSwiper() {__webpack_require__.e(/*! require.ensure | components/index/IndexSwiper */ "components/index/IndexSwiper").then((function () {return resolve(__webpack_require__(/*! @/components/index/IndexSwiper.vue */ 43));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Recommend = function Recommend() {__webpack_require__.e(/*! require.ensure | components/index/Recommend */ "components/index/Recommend").then((function () {return resolve(__webpack_require__(/*! @/components/index/Recommend.vue */ 70));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Card = function Card() {__webpack_require__.e(/*! require.ensure | components/common/Card */ "components/common/Card").then((function () {return resolve(__webpack_require__(/*! @/components/common/Card.vue */ 78));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var CommodityList = function CommodityList() {__webpack_require__.e(/*! require.ensure | components/common/CommodityList */ "components/common/CommodityList").then((function () {return resolve(__webpack_require__(/*! @/components/common/CommodityList.vue */ 86));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Banner = function Banner() {__webpack_require__.e(/*! require.ensure | components/index/Banner */ "components/index/Banner").then((function () {return resolve(__webpack_require__(/*! @/components/index/Banner.vue */ 99));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var IndexSwiper = function IndexSwiper() {__webpack_require__.e(/*! require.ensure | components/index/IndexSwiper */ "components/index/IndexSwiper").then((function () {return resolve(__webpack_require__(/*! @/components/index/IndexSwiper.vue */ 43));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Recommend = function Recommend() {__webpack_require__.e(/*! require.ensure | components/index/Recommend */ "components/index/Recommend").then((function () {return resolve(__webpack_require__(/*! @/components/index/Recommend.vue */ 70));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Card = function Card() {__webpack_require__.e(/*! require.ensure | components/common/Card */ "components/common/Card").then((function () {return resolve(__webpack_require__(/*! @/components/common/Card.vue */ 78));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var CommodityList = function CommodityList() {__webpack_require__.e(/*! require.ensure | components/common/CommodityList */ "components/common/CommodityList").then((function () {return resolve(__webpack_require__(/*! @/components/common/CommodityList.vue */ 86));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Banner = function Banner() {__webpack_require__.e(/*! require.ensure | components/index/Banner */ "components/index/Banner").then((function () {return resolve(__webpack_require__(/*! @/components/index/Banner.vue */ 99));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Icons = function Icons() {__webpack_require__.e(/*! require.ensure | components/index/Icons */ "components/index/Icons").then((function () {return resolve(__webpack_require__(/*! @/components/index/Icons.vue */ 107));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Hot = function Hot() {__webpack_require__.e(/*! require.ensure | components/index/Hot */ "components/index/Hot").then((function () {return resolve(__webpack_require__(/*! @/components/index/Hot.vue */ 115));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
 
 
 
@@ -193,7 +198,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     Recommend: Recommend,
     Card: Card,
     CommodityList: CommodityList,
-    Banner: Banner },
+    Banner: Banner,
+    Icons: Icons,
+    Hot: Hot },
 
   onLoad: function onLoad() {},
   methods: {} };exports.default = _default;
