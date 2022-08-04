@@ -15,9 +15,14 @@
 			</view>
 		</scroll-view>
 
-		<swiper @change="onChangeTab" :current="topBarIndex">
+		<swiper @change="onChangeTab" :current="topBarIndex" :style="'height:' + contentBlockHeight + 'px;'">
 			<swiper-item v-for="(item, index) in topBar" :key="index">
-				<view>{{ item.name }}</view>
+				<view class="home-data">
+					<IndexSwiper></IndexSwiper>
+					<Recommend></Recommend>
+					<Card cardTitle="猜你喜欢"></Card>
+					<CommodityList></CommodityList>
+				</view>
 			</swiper-item>
 		</swiper>
 
@@ -56,7 +61,9 @@ export default {
 			//顶栏跟随的索引id值
 			scrollIntoIndex: 'top0',
 			//顶栏数据
-			topBar: [{ name: '推荐' }, { name: '运动户外' }, { name: '服饰内衣' }, { name: '鞋靴箱包' }, { name: '美妆个护' }, { name: '家居数码' }, { name: '食品母婴' }]
+			topBar: [{ name: '推荐' }, { name: '运动户外' }, { name: '服饰内衣' }, { name: '鞋靴箱包' }, { name: '美妆个护' }, { name: '家居数码' }, { name: '食品母婴' }],
+			//内容块的高度值
+			contentBlockHeight: 0
 		};
 	},
 	components: {
@@ -70,6 +77,15 @@ export default {
 		Shop
 	},
 	onLoad() {},
+	onReady() {
+		let view = uni.createSelectorQuery().select('.home-data');
+		//获取view节点的属性
+		view
+			.boundingClientRect(data => {
+				this.contentBlockHeight = data.height;
+			})
+			.exec();
+	},
 	methods: {
 		changeTab(index) {
 			if (this.topBarIndex === index) {
