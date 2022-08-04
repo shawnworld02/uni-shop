@@ -1,7 +1,6 @@
 
 .commodity.data-v-5ac280a4 {
 	display: flex;
-	flex-wrap: wrap;
 }
 .commodity-item.data-v-5ac280a4 {
 	padding-bottom: 20rpx;

@@ -129,14 +129,27 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   props: {
+    //数据
     dataList: Array,
+    //宽度
     itemWidth: {
       type: String,
       default: '375rpx' },
 
+    //高度
     bigH: {
       type: String,
-      default: '375rpx' } } };exports.default = _default;
+      default: '375rpx' },
+
+    //是否换行
+    wrap: {
+      type: String,
+      default: 'wrap' },
+
+    //商品文字大小	
+    nameSize: {
+      type: String,
+      default: '26rpx' } } };exports.default = _default;
 
 /***/ }),
 
