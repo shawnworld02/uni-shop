@@ -17,16 +17,21 @@
 
 		<swiper @change="onChangeTab" :current="topBarIndex" :style="'height:' + contentBlockHeight + 'px;'">
 			<swiper-item v-for="(item, index) in newTopBar" :key="index">
-				<view class="home-data">
-					<block v-for="(k, i) in item.data" :key="i">
-						<IndexSwiper v-if="k.type === 'swiperList'" :dataList="k.data"></IndexSwiper>
-						<template v-if="k.type === 'recommendList'">
-							<Recommend :dataList="k.data"></Recommend>
-							<Card cardTitle="猜你喜欢"></Card>
-						</template>
-						<CommodityList v-if="k.type === 'CommodityList'" :dataList="k.data"></CommodityList>
+				<scroll-view scroll-y="true" :style="'height:' + contentBlockHeight + 'px;'">
+					<block v-if="item.data.length > 0">
+						<block v-for="(k, i) in item.data" :key="i">
+							<IndexSwiper v-if="k.type === 'swiperList'" :dataList="k.data"></IndexSwiper>
+							<template v-if="k.type === 'recommendList'">
+								<Recommend :dataList="k.data"></Recommend>
+								<Card cardTitle="猜你喜欢"></Card>
+							</template>
+							<CommodityList v-if="k.type === 'CommodityList'" :dataList="k.data"></CommodityList>
+						</block>
 					</block>
-				</view>
+					<view v-else>
+						暂无数据
+					</view>
+				</scroll-view>
 			</swiper-item>
 		</swiper>
 
@@ -57,6 +62,12 @@ import Banner from '@/components/index/Banner.vue';
 import Icons from '@/components/index/Icons.vue';
 import Hot from '@/components/index/Hot.vue';
 import Shop from '@/components/index/Shop.vue';
+// #ifdef H5
+const url = '/api/index_list/data';
+// #endif
+// #ifdef MP-WEIXIN
+const baseUrl = 'http://192.168.0.101:3000';
+// #endif
 export default {
 	data() {
 		return {
@@ -83,21 +94,29 @@ export default {
 		Shop
 	},
 	onLoad() {
+		//#ifdef MP-WEIXIN
+		this.__init_wx();
+		//#endif
+		//#ifdef H5
 		this.__init();
+		//#endif
 	},
 	onReady() {
-		let view = uni.createSelectorQuery().select('.home-data');
-		//获取view节点的属性
-		view
-			.boundingClientRect(data => {
-				this.contentBlockHeight = 3000;
-			})
-			.exec();
+		//获取手机屏幕可视高度
+		uni.getSystemInfo({
+			success: res => {
+				this.contentBlockHeight = res.windowHeight - uni.upx2px(80) - this.getContentBlockHeight(); //可视高度减去tabbar高度
+			}
+		});
 	},
 	methods: {
-		__init() {
+		//#ifdef MP-WEIXIN
+		__init_wx() {
 			uni.request({
-				url: '/api/index_list/data',
+				url: baseUrl,
+				headers: {
+					'Content-Type': 'application/json'
+				},
 				success: res => {
 					let data = res.data.data;
 					this.topBar = data.topBar;
@@ -105,6 +124,22 @@ export default {
 				}
 			});
 		},
+		//#endif
+		//#ifdef H5
+		__init() {
+			uni.request({
+				url: url,
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				success: res => {
+					let data = res.data.data;
+					this.topBar = data.topBar;
+					this.newTopBar = this.initData(data);
+				}
+			});
+		},
+		//#endif
 		initData(res) {
 			let arr = [];
 			for (let i = 0; i < this.topBar.length; i++) {
@@ -119,6 +154,7 @@ export default {
 			}
 			return arr;
 		},
+		//点击顶栏
 		changeTab(index) {
 			if (this.topBarIndex === index) {
 				return;
@@ -126,11 +162,24 @@ export default {
 			this.topBarIndex = index;
 			this.scrollIntoIndex = 'top' + index;
 		},
+		//对应滑动
 		onChangeTab(e) {
 			if (this.topBarIndex === e.detail.current) {
 				return;
 			}
 			this.topBarIndex = e.detail.current;
+		},
+		//获取可视区域高度[兼容]
+		getContentBlockHeight() {
+			const res = uni.getSystemInfoSync();
+			const system = res.platform;
+			if (system === 'ios') {
+				return 44 + res.statusBarHeight;
+			} else if (system === 'android') {
+				return 48 + res.statusBarHeight;
+			} else {
+				return 0;
+			}
 		}
 	}
 };
