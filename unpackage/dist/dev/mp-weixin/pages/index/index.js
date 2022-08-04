@@ -262,7 +262,14 @@ __webpack_require__.r(__webpack_exports__);
     Hot: Hot,
     Shop: Shop },
 
-  onLoad: function onLoad() {},
+  onLoad: function onLoad() {
+    uni.request({
+      url: "/api/index_list/data",
+      success: function success(res) {
+        console.log(res);
+      } });
+
+  },
   onReady: function onReady() {var _this = this;
     var view = uni.createSelectorQuery().select('.home-data');
     //获取view节点的属性

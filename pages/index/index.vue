@@ -76,7 +76,14 @@ export default {
 		Hot,
 		Shop
 	},
-	onLoad() {},
+	onLoad() {
+		uni.request({
+			url:"/api/index_list/data",
+			success: res => {
+				console.log(res);
+			}
+		});
+	},
 	onReady() {
 		let view = uni.createSelectorQuery().select('.home-data');
 		//获取view节点的属性
