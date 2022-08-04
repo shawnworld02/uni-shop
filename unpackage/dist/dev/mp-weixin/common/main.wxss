@@ -3,8 +3,6 @@
 
 
 
-
-
 /*每个页面公共css */
 /* 全局css文件 */
 /* 默认字体颜色 */
@@ -17,6 +15,20 @@
 /* 背景颜色 */
 .bg-color{
 	background-color: #42B7FB;
+}
+::-webkit-scrollbar{
+  display: none;
+}
+ .uni-scroll-view::-webkit-scrollbar {
+        /* 隐藏滚动条，但依旧具备可以滚动的功能 */
+        display: none
+}
+::-webkit-scrollbar {
+	display: none;
+	width: 0 !important;
+	height: 0 !important;
+	-webkit-appearance: none;
+	background: transparent;
 }
 @font-face {
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -1356,5 +1368,10 @@ radio-group label, checkbox-group label{
 .icon-shanglajiantou:before {
   content: "\e626";
 }
+
+
+
+
+
 
 

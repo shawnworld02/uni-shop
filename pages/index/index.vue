@@ -9,16 +9,21 @@
 			</template>
 		</uni-nav-bar>
 
+		<!-- 推荐模版 -->
 		<!-- <IndexSwiper></IndexSwiper>
 		<Recommend></Recommend>
 		<Card cardTitle="猜你喜欢"></Card>
 		<CommodityList></CommodityList> -->
-		<Banner></Banner>
+		
+		<!-- 其他模板：运动户外、美妆 -->
+		<!-- <Banner></Banner>
 		<Icons></Icons>
 		<Card cardTitle="热 销 爆 品"></Card>
 		<Hot></Hot>
 		<Card cardTitle="推 荐 店 铺"></Card>
 		<Shop></Shop>
+		<Card cardTitle="为 您 推 荐"></Card>
+		<CommodityList></CommodityList> -->
 	</view>
 </template>
 

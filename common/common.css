@@ -12,3 +12,17 @@
 .bg-color{
 	background-color: #42B7FB;
 }
+::-webkit-scrollbar{
+  display: none;
+}
+/deep/.uni-scroll-view::-webkit-scrollbar {
+        /* 隐藏滚动条，但依旧具备可以滚动的功能 */
+        display: none
+}
+::-webkit-scrollbar {
+	display: none;
+	width: 0 !important;
+	height: 0 !important;
+	-webkit-appearance: none;
+	background: transparent;
+}
