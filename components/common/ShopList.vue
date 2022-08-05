@@ -1,29 +1,15 @@
 <template>
 	<view>
 		<view class="shop-title f-color">
-			<view class="shop-item">
-				<view>价格</view>
+			<view class="shop-item" v-for="(item, index) in shopList.data" :key="index" @tap="changTab(index)">
+				<view :class="shopList.currentIndex === index ? 'f-active-color' : ''">{{ item.name }}</view>
 				<view class="arrow-group">
-					<view class="iconfont icon-shangjiantou up"></view>
-					<view class="iconfont icon-shanglajiantou down"></view>
-				</view>
-			</view>
-			<view class="shop-item">
-				<view>折扣</view>
-				<view class="arrow-group">
-					<view class="iconfont icon-shangjiantou up"></view>
-					<view class="iconfont icon-shanglajiantou down"></view>
-				</view>
-			</view>
-			<view class="shop-item">
-				<view>品牌</view>
-				<view class="arrow-group">
-					<view class="iconfont icon-shangjiantou up"></view>
-					<view class="iconfont icon-shanglajiantou down"></view>
+					<view class="iconfont icon-shangjiantou up" :class="item.status === 1 ? 'f-active-color' : ''"></view>
+					<view class="iconfont icon-shanglajiantou down" :class="item.status === 2 ? 'f-active-color' : ''"></view>
 				</view>
 			</view>
 		</view>
-		<Lines></Lines>
+		<Lines />
 		<CommodityList :dataList="dataList"></CommodityList>
 	</view>
 </template>
@@ -38,6 +24,10 @@ export default {
 	},
 	data() {
 		return {
+			shopList: {
+				currentIndex: 0,
+				data: [{ name: '价格', status: 1 }, { name: '折扣', status: 0 }, { name: '品牌', status: 0 }]
+			},
 			dataList: [
 				{
 					id: 1,
@@ -73,6 +63,26 @@ export default {
 				}
 			]
 		};
+	},
+	methods: {
+		changTab(index) {
+			//原来点击的title索引值
+			let idx = this.shopList.currentIndex;
+			//根据索引值取出具体哪一个title对象
+			let item = this.shopList.data[idx];
+			//如果点击的title和点过的title是同一个，切换上下箭头的状态
+			if(idx === index){
+				return item.status = item.status === 1 ? 2 : 1; 
+			}
+			//点击的是新的title
+			let newItem = this.shopList.data[index];
+			//将点击过的title恢复状态
+			item.status = 0;
+			//将点击过的title记录下来
+			this.shopList.currentIndex = index;
+			//新点击的title上箭头激活
+			newItem.status = 1;
+		}
 	}
 };
 </script>

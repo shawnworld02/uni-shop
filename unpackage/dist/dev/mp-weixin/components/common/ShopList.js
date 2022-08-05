@@ -133,20 +133,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 {
   components: {
     Lines: Lines,
@@ -154,6 +140,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
   data: function data() {
     return {
+      shopList: {
+        currentIndex: 0,
+        data: [{ name: '价格', status: 1 }, { name: '折扣', status: 0 }, { name: '品牌', status: 0 }] },
+
       dataList: [
       {
         id: 1,
@@ -189,7 +179,26 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-  } };exports.default = _default;
+  },
+  methods: {
+    changTab: function changTab(index) {
+      //原来点击的title索引值
+      var idx = this.shopList.currentIndex;
+      //根据索引值取出具体哪一个title对象
+      var item = this.shopList.data[idx];
+      //如果点击的title和点过的title是同一个，切换上下箭头的状态
+      if (idx === index) {
+        return item.status = item.status === 1 ? 2 : 1;
+      }
+      //点击的是新的title
+      var newItem = this.shopList.data[index];
+      //将点击过的title恢复状态
+      item.status = 0;
+      //将点击过的title记录下来
+      this.shopList.currentIndex = index;
+      //新点击的title上箭头激活
+      newItem.status = 1;
+    } } };exports.default = _default;
 
 /***/ }),
 
