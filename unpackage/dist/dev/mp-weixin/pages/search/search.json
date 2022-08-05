@@ -2,5 +2,7 @@
   "navigationBarTitleText": "搜索",
   "navigationBarBackgroundColor": "#FFFFFF",
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "lines": "/components/common/Lines"
+  }
 }
