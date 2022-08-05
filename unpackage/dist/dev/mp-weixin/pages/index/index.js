@@ -307,7 +307,8 @@ var baseUrl = 'http://192.168.0.101:3000';var _default =
       var arr = [];
       for (var i = 0; i < this.topBar.length; i++) {
         var obj = {
-          data: [] };
+          data: [],
+          load: "first" };
 
         //获取首次数据
         if (i === 0) {
@@ -324,7 +325,10 @@ var baseUrl = 'http://192.168.0.101:3000';var _default =
       }
       this.topBarIndex = index;
       this.scrollIntoIndex = 'top' + index;
-      this.addData();
+      //每一次滑动 --> 赋值first
+      if (this.newTopBar[this.topBarIndex].load === "first") {
+        this.addData();
+      }
     },
     //对应滑动
     onChangeTab: function onChangeTab(e) {
@@ -355,10 +359,16 @@ var baseUrl = 'http://192.168.0.101:3000';var _default =
       uni.request({
         url: '/api/index_list/' + id + '/data/1',
         success: function success(res) {
-          var data = res.data.data;
-          _this3.newTopBar[index].data = [].concat(_toConsumableArray(_this3.newTopBar[index].data), _toConsumableArray(data));
+          if (res.statusCode !== 200) {
+            return;
+          } else {
+            var data = res.data.data;
+            _this3.newTopBar[index].data = [].concat(_toConsumableArray(_this3.newTopBar[index].data), _toConsumableArray(data));
+          }
         } });
 
+      //当请求结束后，重新赋值
+      this.newTopBar[index].load = "last";
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

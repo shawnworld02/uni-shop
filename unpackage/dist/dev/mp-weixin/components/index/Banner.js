@@ -121,7 +121,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   props: {
-    dataList: Array } };exports.default = _default;
+    bigUrl: String } };exports.default = _default;
 
 /***/ }),
 

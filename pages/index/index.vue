@@ -28,7 +28,7 @@
 							</template>
 
 							<!-- 运动户外以及其他... -->
-							<Banner v-if="k.type === 'bannerList'" :dataList="k.imgUrl"></Banner>
+							<Banner v-if="k.type === 'bannerList'" :bigUrl="k.imgUrl"></Banner>
 							<template v-if="k.type === 'iconsList'">
 								<Icons :dataList="k.data"></Icons>
 								<Card cardTitle="热 销 爆 品"></Card>
@@ -144,7 +144,8 @@ export default {
 			let arr = [];
 			for (let i = 0; i < this.topBar.length; i++) {
 				let obj = {
-					data: []
+					data: [],
+					load:"first"
 				};
 				//获取首次数据
 				if (i === 0) {
@@ -161,7 +162,10 @@ export default {
 			}
 			this.topBarIndex = index;
 			this.scrollIntoIndex = 'top' + index;
-			this.addData();
+			//每一次滑动 --> 赋值first
+			if(this.newTopBar[this.topBarIndex].load === "first"){
+				this.addData();
+			}
 		},
 		//对应滑动
 		onChangeTab(e) {
@@ -192,10 +196,16 @@ export default {
 			uni.request({
 				url: '/api/index_list/' + id + '/data/1',
 				success: res => {
-					let data = res.data.data;
-					this.newTopBar[index].data = [...this.newTopBar[index].data, ...data];
+					if(res.statusCode !== 200){
+						return;
+					}else{
+						let data = res.data.data;
+						this.newTopBar[index].data = [...this.newTopBar[index].data, ...data];
+					}
 				}
 			});
+			//当请求结束后，重新赋值
+			this.newTopBar[index].load = "last";
 		}
 	}
 };

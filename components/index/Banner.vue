@@ -1,11 +1,11 @@
 <template>
-	<view class="banner"><image class="banner-img" :src="dataList"></image></view>
+	<view class="banner"><image class="banner-img" :src="bigUrl"></image></view>
 </template>
 
 <script>
 	export default{
 		props:{
-			dataList:Array
+			bigUrl:String
 		}
 	}
 </script>
