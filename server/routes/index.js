@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 	});
 });
 
-// 首页的接口
+// 首页推荐的数据
 router.get('/api/index_list/data', (req, res, next) => {
 	res.send({
 		"code": 0,
@@ -104,7 +104,49 @@ router.get('/api/index_list/data', (req, res, next) => {
 		},
 	})
 })
-
+//运动户外第一次触底的数据
+router.get("/api/index_list/2/data/2", (req, res, next) => {
+	res.json({
+		code: "0",
+		data: [{
+			type: "CommodityList",
+			data: [{
+					id: 1,
+					imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
+					name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
+					pprice: '299',
+					oprice: '59',
+					discount: '4.9'
+				},
+				{
+					id: 2,
+					imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
+					name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
+					pprice: '299',
+					oprice: '59',
+					discount: '4.9'
+				},
+				{
+					id: 3,
+					imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
+					name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
+					pprice: '299',
+					oprice: '59',
+					discount: '4.9'
+				},
+				{
+					id: 4,
+					imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
+					name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
+					pprice: '299',
+					oprice: '59',
+					discount: '4.9'
+				}
+			]
+		}]
+	})
+})
+//运动户外第一次加载的数据
 router.get("/api/index_list/2/data/1", (req, res, next) => {
 	res.json({
 		code: "0",
@@ -226,7 +268,7 @@ router.get("/api/index_list/2/data/1", (req, res, next) => {
 		]
 	})
 })
-
+//服饰内衣第一次加载的数据
 router.get("/api/index_list/3/data/1", (req, res, next) => {
 	res.json({
 		code: "0",

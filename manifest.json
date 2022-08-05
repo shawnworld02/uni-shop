@@ -68,26 +68,5 @@
 	"uniStatistics": {
 		"enable": false
 	},
-	"vueVersion": "2",
-	"h5": {
-		"devServer": {
-			"port": 8080, //端口号
-			"disableHostCheck": true,
-			"proxy": {
-				"/api": {
-					"target": "http://192.168.0.101:3000", 
-					"changeOrigin": true, 
-					"secure": true, 
-					"pathRewrite": {
-						"^/api": "/api"
-					} 
-				}
-			}
-		},
-		"optimization": {
-			"treeShaking": {
-				"enable": false
-			}
-		}
-	}
+	"vueVersion": "2"
 }

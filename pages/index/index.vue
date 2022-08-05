@@ -1,6 +1,6 @@
 <template>
 	<view class="index">
-		<uni-nav-bar :statusBar="true" title="百年奥莱">
+		<uni-nav-bar class="uni-nav-bar" :statusBar="true" title="百年奥莱">
 			<template v-slot:left>
 				<view class="iconfont icon-fangdajing"></view>
 			</template>
@@ -17,7 +17,7 @@
 
 		<swiper @change="onChangeTab" :current="topBarIndex" :style="'height:' + contentBlockHeight + 'px;'">
 			<swiper-item v-for="(item, index) in newTopBar" :key="index">
-				<scroll-view scroll-y="true" :style="'height:' + contentBlockHeight + 'px;'">
+				<scroll-view scroll-y="true" :style="'height:' + contentBlockHeight + 'px;'" @scrolltolower="loadMore(index)">
 					<block v-if="item.data.length > 0">
 						<block v-for="(k, i) in item.data" :key="i">
 							<!--  首页推荐 -->
@@ -47,6 +47,7 @@
 						</block>
 					</block>
 					<view v-else>暂无数据</view>
+					<view class="load-text f-color">{{ item.loadText }}</view>
 				</scroll-view>
 			</swiper-item>
 		</swiper>
@@ -62,12 +63,8 @@ import Banner from '@/components/index/Banner.vue';
 import Icons from '@/components/index/Icons.vue';
 import Hot from '@/components/index/Hot.vue';
 import Shop from '@/components/index/Shop.vue';
-// #ifdef H5
-const url = '/api/index_list/data';
-// #endif
-// #ifdef MP-WEIXIN
-const baseUrl = 'http://192.168.0.101:3000';
-// #endif
+//导入request.js
+import $http from '@/common/api/request.js';
 export default {
 	data() {
 		return {
@@ -94,12 +91,7 @@ export default {
 		Shop
 	},
 	onLoad() {
-		//#ifdef MP-WEIXIN
-		this.__init_wx();
-		//#endif
-		//#ifdef H5
 		this.__init();
-		//#endif
 	},
 	onReady() {
 		//获取手机屏幕可视高度
@@ -110,42 +102,29 @@ export default {
 		});
 	},
 	methods: {
-		//#ifdef MP-WEIXIN
-		__init_wx() {
-			uni.request({
-				url: baseUrl,
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				success: res => {
-					let data = res.data.data;
-					this.topBar = data.topBar;
-					this.newTopBar = this.initData(data);
-				}
-			});
-		},
-		//#endif
-		//#ifdef H5
 		__init() {
-			uni.request({
-				url: url,
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				success: res => {
-					let data = res.data.data;
-					this.topBar = data.topBar;
-					this.newTopBar = this.initData(data);
-				}
-			});
+			$http
+				.request({
+					url: '/index_list/data'
+				})
+				.then(res => {
+					this.topBar = res.topBar;
+					this.newTopBar = this.initData(res);
+				})
+				.catch(() => {
+					uni.showToast({
+						title: '请求失败',
+						icon: 'none'
+					});
+				});
 		},
-		//#endif
 		initData(res) {
 			let arr = [];
 			for (let i = 0; i < this.topBar.length; i++) {
 				let obj = {
 					data: [],
-					load:"first"
+					load: 'first',
+					loadText: '上拉加载更多...'
 				};
 				//获取首次数据
 				if (i === 0) {
@@ -163,7 +142,7 @@ export default {
 			this.topBarIndex = index;
 			this.scrollIntoIndex = 'top' + index;
 			//每一次滑动 --> 赋值first
-			if(this.newTopBar[this.topBarIndex].load === "first"){
+			if (this.newTopBar[this.topBarIndex].load === 'first') {
 				this.addData();
 			}
 		},
@@ -187,25 +166,44 @@ export default {
 			}
 		},
 		//对应显示不同数据
-		addData() {
+		addData(callback) {
 			//拿到索引
 			let index = this.topBarIndex;
-			//拿到id
+			//拿到id ---> 不同的板块
 			let id = this.topBar[index].id;
 			//请求不同的数据
-			uni.request({
-				url: '/api/index_list/' + id + '/data/1',
-				success: res => {
-					if(res.statusCode !== 200){
-						return;
-					}else{
-						let data = res.data.data;
-						this.newTopBar[index].data = [...this.newTopBar[index].data, ...data];
-					}
+			let page = Math.ceil(this.newTopBar[index].data.length / 5) + 1;
+			if (id === 1) {
+				return;
+			} else {
+				//请求数据
+				$http
+					.request({
+						url: '/index_list/' + id + '/data/' + page + ''
+					})
+					.then(res => {
+						this.newTopBar[index].data = [...this.newTopBar[index].data, ...res];
+					})
+					.catch(() => {
+						uni.showToast({
+							title: '商品已经加载到底',
+							icon: 'none'
+						});
+					});
+				//当请求结束后，重新赋值
+				this.newTopBar[index].load = 'last';
+				if (typeof callback === 'function') {
+					callback();
 				}
+			}
+		},
+		//上拉加载更多
+		loadMore(index) {
+			this.newTopBar[index].loadText = '加载中...';
+			//请求数据结束后，文字提示信息又换回"上拉加载更多"
+			this.addData(() => {
+				this.newTopBar[index].loadText = '上拉加载更多...';
 			});
-			//当请求结束后，重新赋值
-			this.newTopBar[index].load = "last";
 		}
 	}
 };
@@ -225,5 +223,10 @@ export default {
 .f-active-color {
 	padding: 10rpx 0;
 	border-bottom: 4rpx solid #49bdfb;
+}
+.load-text {
+	border-top: 2rpx solid #636263;
+	line-height: 60rpx;
+	text-align: center;
 }
 </style>
