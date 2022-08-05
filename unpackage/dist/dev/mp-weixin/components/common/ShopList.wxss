@@ -1,0 +1,32 @@
+
+.shop-title.data-v-9687dfe6 {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.shop-item.data-v-9687dfe6 {
+	display: flex;
+	flex: 1;
+	height: 80rpx;
+	justify-content: center;
+	align-items: center;
+}
+.arrow-group.data-v-9687dfe6 {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	margin-left: 10rpx;
+}
+.iconfont.data-v-9687dfe6 {
+	width: 16rpx;
+	height: 8rpx;
+	position: absolute;
+	left: 0;
+}
+.up.data-v-9687dfe6 {
+	top: -34rpx;
+}
+.down.data-v-9687dfe6 {
+	top: -16rpx;
+}
+

@@ -31,6 +31,13 @@
 				
 			}
 		},
+		onNavigationBarButtonTap(e){
+			if(e.float === "right"){
+				uni.navigateTo({
+					url:"/pages/search-list/search-list"
+				})
+			}
+		},
 		methods: {
 			
 		},

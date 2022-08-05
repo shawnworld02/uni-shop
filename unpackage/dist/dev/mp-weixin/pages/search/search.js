@@ -132,7 +132,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Lines = function Lines() {__webpack_require__.e(/*! require.ensure | components/common/Lines */ "components/common/Lines").then((function () {return resolve(__webpack_require__(/*! @/components/common/Lines.vue */ 138));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Lines = function Lines() {__webpack_require__.e(/*! require.ensure | components/common/Lines */ "components/common/Lines").then((function () {return resolve(__webpack_require__(/*! @/components/common/Lines.vue */ 138));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -165,11 +165,19 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
   },
+  onNavigationBarButtonTap: function onNavigationBarButtonTap(e) {
+    if (e.float === "right") {
+      uni.navigateTo({
+        url: "/pages/search-list/search-list" });
+
+    }
+  },
   methods: {},
 
 
   components: {
     Lines: Lines } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
