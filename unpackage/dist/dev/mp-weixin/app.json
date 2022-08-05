@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/list/list",
     "pages/shopping-cart/shopping-cart",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/search/search"
   ],
   "subPackages": [],
   "window": {

@@ -1,6 +1,6 @@
 <template>
 	<view class="index">
-		<uni-nav-bar class="uni-nav-bar" :statusBar="true" title="百年奥莱">
+		<uni-nav-bar :statusBar="true" title="百年奥莱" @clickLeft="clickSearch">
 			<template v-slot:left>
 				<view class="iconfont icon-fangdajing"></view>
 			</template>
@@ -204,6 +204,14 @@ export default {
 			this.addData(() => {
 				this.newTopBar[index].loadText = '上拉加载更多...';
 			});
+		},
+		//搜索按钮点击事件
+		clickSearch(){
+			console.log(111);
+			uni.navigateTo({
+				url:"/pages/search/search"
+			});
+			console.log(222);
 		}
 	}
 };

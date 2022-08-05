@@ -33,6 +33,36 @@
 				"enablePullDownRefresh": false
 			}
 
+		}, {
+			"path": "pages/search/search",
+			"style": {
+				"navigationBarTitleText": "搜索",
+				"navigationBarBackgroundColor": "#FFFFFF",
+				"enablePullDownRefresh": false,
+				"app-plus": {
+					"scrollIndicator": "none",
+					"titleNView": {
+						"searchInput": {
+							"align": "left",
+							"placeholder": "nike",
+							"disabled": false,
+							"autoFocus": true,
+							"borderRadius": "15px",
+							"backgroundColor": "#F7F7F7",
+							"placeholderColor": "#B3B3B3"
+						},
+						"buttons": [
+							{
+								"float": "right",
+								"color": "#636263",
+								"text": "搜索",
+								"fontSize": "16px",
+								"width":"60px"
+							}
+						]
+					}
+				}
+			}
 		}
 	],
 	"globalStyle": {

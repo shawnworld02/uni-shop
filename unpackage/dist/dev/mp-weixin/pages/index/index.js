@@ -367,6 +367,14 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/common/api/reque
       this.addData(function () {
         _this4.newTopBar[index].loadText = '上拉加载更多...';
       });
+    },
+    //搜索按钮点击事件
+    clickSearch: function clickSearch() {
+      console.log(111);
+      uni.navigateTo({
+        url: "/pages/search/search" });
+
+      console.log(222);
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
