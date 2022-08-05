@@ -1,41 +1,18 @@
 <template>
 	<view class="icons">
-		<view class="icons-item">
-			<image class="icons-img" src="../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg"></image>
-			<text class="icons-name f-color">运动</text>
-		</view>
-		<view class="icons-item">
-			<image class="icons-img" src="../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg"></image>
-			<text class="icons-name f-color">运动</text>
-		</view>
-		<view class="icons-item">
-			<image class="icons-img" src="../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg"></image>
-			<text class="icons-name f-color">运动</text>
-		</view>
-		<view class="icons-item">
-			<image class="icons-img" src="../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg"></image>
-			<text class="icons-name f-color">运动</text>
-		</view>
-		<view class="icons-item">
-			<image class="icons-img" src="../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg"></image>
-			<text class="icons-name f-color">运动</text>
-		</view>
-		<view class="icons-item">
-			<image class="icons-img" src="../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg"></image>
-			<text class="icons-name f-color">运动</text>
-		</view>
-		<view class="icons-item">
-			<image class="icons-img" src="../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg"></image>
-			<text class="icons-name f-color">运动</text>
-		</view>
-		<view class="icons-item">
-			<image class="icons-img" src="../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg"></image>
-			<text class="icons-name f-color">运动</text>
+		<view class="icons-item" v-for="(item,index) in dataList" :key="index">
+			<image class="icons-img" :src="item.imgUrl"></image>
+			<text class="icons-name f-color">{{item.name}}</text>
 		</view>
 	</view>
 </template>
 
 <script>
+	export default{
+		props:{
+			dataList:Array
+		}
+	}
 </script>
 
 <style scoped>

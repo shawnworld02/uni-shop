@@ -1,55 +1,17 @@
 <template>
-	<view class="hot">
-		<Commodity :dataList="hotList" itemWidth="250rpx" bigH="250rpx"></Commodity>
-	</view>
+	<view class="hot"><Commodity :dataList="dataList" itemWidth="250rpx" bigH="250rpx"></Commodity></view>
 </template>
 
 <script>
-	import Commodity from '@/components/common/Commodity.vue'
-	export default{
-		data(){
-			return{
-				hotList:[
-					{
-						id:1,
-						imgUrl:'../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
-						name:'风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
-						pprice:'299',
-						oprice:'59',
-						discount:'4.9'
-					},
-					{
-						id:2,
-						imgUrl:'../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
-						name:'风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
-						pprice:'299',
-						oprice:'59',
-						discount:'4.9'
-					},
-					{
-						id:3,
-						imgUrl:'../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
-						name:'风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
-						pprice:'299',
-						oprice:'59',
-						discount:'4.9'
-					},
-					{
-						id:4,
-						imgUrl:'../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
-						name:'风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
-						pprice:'299',
-						oprice:'59',
-						discount:'4.9'
-					}
-				]
-			}
-		},
-		components:{
-			Commodity
-		}
+import Commodity from '@/components/common/Commodity.vue';
+export default {
+	props: {
+		dataList: Array
+	},
+	components: {
+		Commodity
 	}
+};
 </script>
 
-<style>
-</style>
+<style></style>

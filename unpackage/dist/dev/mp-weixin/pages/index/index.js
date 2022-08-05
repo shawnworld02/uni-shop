@@ -161,7 +161,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var IndexSwiper = function IndexSwiper() {__webpack_require__.e(/*! require.ensure | components/index/IndexSwiper */ "components/index/IndexSwiper").then((function () {return resolve(__webpack_require__(/*! @/components/index/IndexSwiper.vue */ 45));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Recommend = function Recommend() {__webpack_require__.e(/*! require.ensure | components/index/Recommend */ "components/index/Recommend").then((function () {return resolve(__webpack_require__(/*! @/components/index/Recommend.vue */ 52));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Card = function Card() {__webpack_require__.e(/*! require.ensure | components/common/Card */ "components/common/Card").then((function () {return resolve(__webpack_require__(/*! @/components/common/Card.vue */ 59));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var CommodityList = function CommodityList() {__webpack_require__.e(/*! require.ensure | components/common/CommodityList */ "components/common/CommodityList").then((function () {return resolve(__webpack_require__(/*! @/components/common/CommodityList.vue */ 66));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Banner = function Banner() {__webpack_require__.e(/*! require.ensure | components/index/Banner */ "components/index/Banner").then((function () {return resolve(__webpack_require__(/*! @/components/index/Banner.vue */ 71));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Icons = function Icons() {__webpack_require__.e(/*! require.ensure | components/index/Icons */ "components/index/Icons").then((function () {return resolve(__webpack_require__(/*! @/components/index/Icons.vue */ 78));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Hot = function Hot() {__webpack_require__.e(/*! require.ensure | components/index/Hot */ "components/index/Hot").then((function () {return resolve(__webpack_require__(/*! @/components/index/Hot.vue */ 85));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Shop = function Shop() {__webpack_require__.e(/*! require.ensure | components/index/Shop */ "components/index/Shop").then((function () {return resolve(__webpack_require__(/*! @/components/index/Shop.vue */ 90));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}var IndexSwiper = function IndexSwiper() {__webpack_require__.e(/*! require.ensure | components/index/IndexSwiper */ "components/index/IndexSwiper").then((function () {return resolve(__webpack_require__(/*! @/components/index/IndexSwiper.vue */ 45));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Recommend = function Recommend() {__webpack_require__.e(/*! require.ensure | components/index/Recommend */ "components/index/Recommend").then((function () {return resolve(__webpack_require__(/*! @/components/index/Recommend.vue */ 52));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Card = function Card() {__webpack_require__.e(/*! require.ensure | components/common/Card */ "components/common/Card").then((function () {return resolve(__webpack_require__(/*! @/components/common/Card.vue */ 59));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var CommodityList = function CommodityList() {__webpack_require__.e(/*! require.ensure | components/common/CommodityList */ "components/common/CommodityList").then((function () {return resolve(__webpack_require__(/*! @/components/common/CommodityList.vue */ 66));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Banner = function Banner() {__webpack_require__.e(/*! require.ensure | components/index/Banner */ "components/index/Banner").then((function () {return resolve(__webpack_require__(/*! @/components/index/Banner.vue */ 71));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Icons = function Icons() {__webpack_require__.e(/*! require.ensure | components/index/Icons */ "components/index/Icons").then((function () {return resolve(__webpack_require__(/*! @/components/index/Icons.vue */ 78));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Hot = function Hot() {__webpack_require__.e(/*! require.ensure | components/index/Hot */ "components/index/Hot").then((function () {return resolve(__webpack_require__(/*! @/components/index/Hot.vue */ 85));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Shop = function Shop() {__webpack_require__.e(/*! require.ensure | components/index/Shop */ "components/index/Shop").then((function () {return resolve(__webpack_require__(/*! @/components/index/Shop.vue */ 90));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 
@@ -324,6 +324,7 @@ var baseUrl = 'http://192.168.0.101:3000';var _default =
       }
       this.topBarIndex = index;
       this.scrollIntoIndex = 'top' + index;
+      this.addData();
     },
     //对应滑动
     onChangeTab: function onChangeTab(e) {
@@ -343,6 +344,21 @@ var baseUrl = 'http://192.168.0.101:3000';var _default =
       } else {
         return 0;
       }
+    },
+    //对应显示不同数据
+    addData: function addData() {var _this3 = this;
+      //拿到索引
+      var index = this.topBarIndex;
+      //拿到id
+      var id = this.topBar[index].id;
+      //请求不同的数据
+      uni.request({
+        url: '/api/index_list/' + id + '/data/1',
+        success: function success(res) {
+          var data = res.data.data;
+          _this3.newTopBar[index].data = [].concat(_toConsumableArray(_this3.newTopBar[index].data), _toConsumableArray(data));
+        } });
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

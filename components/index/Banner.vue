@@ -1,8 +1,14 @@
 <template>
-	<view class="banner"><image class="banner-img" src="../../static/img/banner.jpeg"></image></view>
+	<view class="banner"><image class="banner-img" :src="dataList"></image></view>
 </template>
 
-<script></script>
+<script>
+	export default{
+		props:{
+			dataList:Array
+		}
+	}
+</script>
 
 <style scoped>
 .banner {

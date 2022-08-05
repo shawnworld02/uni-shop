@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
 	});
 });
 
+// 首页的接口
 router.get('/api/index_list/data', (req, res, next) => {
 	res.send({
 		"code": 0,
@@ -101,6 +102,250 @@ router.get('/api/index_list/data', (req, res, next) => {
 				}
 			]
 		},
+	})
+})
+
+router.get("/api/index_list/2/data/1", (req, res, next) => {
+	res.json({
+		code: "0",
+		data: [{
+				type: "bannerList",
+				imgUrl: "../../static/img/banner.jpeg"
+			},
+			{
+				type: "iconsList",
+				data: [{
+						imgUrl: "../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg",
+						name: "服饰内衣"
+					},
+					{
+						imgUrl: "../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg",
+						name: "服饰内衣"
+					},
+					{
+						imgUrl: "../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg",
+						name: "服饰内衣"
+					},
+					{
+						imgUrl: "../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg",
+						name: "服饰内衣"
+					},
+					{
+						imgUrl: "../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg",
+						name: "服饰内衣"
+					},
+					{
+						imgUrl: "../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg",
+						name: "服饰内衣"
+					},
+					{
+						imgUrl: "../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg",
+						name: "服饰内衣"
+					},
+					{
+						imgUrl: "../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg",
+						name: "服饰内衣"
+					}
+				]
+			},
+			{
+				type: "hotList",
+				data: [{
+						id: 1,
+						imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
+						name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
+						pprice: '299',
+						oprice: '59',
+						discount: '4.9'
+					},
+					{
+						id: 2,
+						imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
+						name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
+						pprice: '299',
+						oprice: '59',
+						discount: '4.9'
+					},
+					{
+						id: 3,
+						imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
+						name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
+						pprice: '299',
+						oprice: '59',
+						discount: '4.9'
+					},
+					{
+						id: 4,
+						imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
+						name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
+						pprice: '299',
+						oprice: '59',
+						discount: '4.9'
+					}
+				]
+			},
+			{
+				type: "shopList",
+				data: [{
+					bigUrl: "../../static/img/首页头部图片1.jpeg",
+					data: [{
+							id: 1,
+							imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
+							name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
+							pprice: '299',
+							oprice: '59',
+							discount: '4.9'
+						},
+						{
+							id: 2,
+							imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
+							name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
+							pprice: '299',
+							oprice: '59',
+							discount: '4.9'
+						},
+						{
+							id: 3,
+							imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
+							name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
+							pprice: '299',
+							oprice: '59',
+							discount: '4.9'
+						},
+						{
+							id: 4,
+							imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
+							name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
+							pprice: '299',
+							oprice: '59',
+							discount: '4.9'
+						}
+					]
+				}]
+			}
+		]
+	})
+})
+
+router.get("/api/index_list/3/data/1", (req, res, next) => {
+	res.json({
+		code: "0",
+		data: [{
+				type: "bannerList",
+				imgUrl: "../../static/img/banner.jpeg"
+			},
+			{
+				type: "iconsList",
+				data: [{
+						imgUrl: "../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg",
+						name: "服饰内衣"
+					},
+					{
+						imgUrl: "../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg",
+						name: "服饰内衣"
+					},
+					{
+						imgUrl: "../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg",
+						name: "服饰内衣"
+					},
+					{
+						imgUrl: "../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg",
+						name: "服饰内衣"
+					},
+					{
+						imgUrl: "../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg",
+						name: "服饰内衣"
+					},
+					{
+						imgUrl: "../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg",
+						name: "服饰内衣"
+					},
+					{
+						imgUrl: "../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg",
+						name: "服饰内衣"
+					},
+					{
+						imgUrl: "../../static/img/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg",
+						name: "服饰内衣"
+					}
+				]
+			},
+			{
+				type: "hotList",
+				data: [{
+						id: 1,
+						imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
+						name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
+						pprice: '299',
+						oprice: '59',
+						discount: '4.9'
+					},
+					{
+						id: 2,
+						imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
+						name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
+						pprice: '299',
+						oprice: '59',
+						discount: '4.9'
+					},
+					{
+						id: 3,
+						imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
+						name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
+						pprice: '299',
+						oprice: '59',
+						discount: '4.9'
+					},
+					{
+						id: 4,
+						imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
+						name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
+						pprice: '299',
+						oprice: '59',
+						discount: '4.9'
+					}
+				]
+			},
+			{
+				type: "shopList",
+				data: [{
+					bigUrl: "../../static/img/首页头部图片1.jpeg",
+					data: [{
+							id: 1,
+							imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
+							name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
+							pprice: '299',
+							oprice: '59',
+							discount: '4.9'
+						},
+						{
+							id: 2,
+							imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
+							name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
+							pprice: '299',
+							oprice: '59',
+							discount: '4.9'
+						},
+						{
+							id: 3,
+							imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
+							name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
+							pprice: '299',
+							oprice: '59',
+							discount: '4.9'
+						},
+						{
+							id: 4,
+							imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
+							name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
+							pprice: '299',
+							oprice: '59',
+							discount: '4.9'
+						}
+					]
+				}]
+			}
+		]
 	})
 })
 
