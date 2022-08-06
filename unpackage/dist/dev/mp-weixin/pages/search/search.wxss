@@ -13,4 +13,7 @@
 	border-radius: 26rpx;
 	margin: 10rpx;
 }
+.search-end.data-v-4cedc0c6 {
+	text-align: center;
+}
 

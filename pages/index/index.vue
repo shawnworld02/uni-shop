@@ -207,11 +207,9 @@ export default {
 		},
 		//搜索按钮点击事件
 		clickSearch(){
-			console.log(111);
 			uni.navigateTo({
 				url:"/pages/search/search"
 			});
-			console.log(222);
 		}
 	}
 };

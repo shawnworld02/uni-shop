@@ -6,10 +6,10 @@
 				<view class="f-color">最近搜索</view>
 				<view class="iconfont icon-lajitong f-color"></view>
 			</view>
-			<view>
-				<view class="search-name f-color">四件套</view>
-				<view class="search-name f-color">面膜</view>
+			<view v-if="searchedData.length > 0">
+				<view class="search-name f-color" v-for="(item, index) in searchedData" :key="index">{{ item }}</view>
 			</view>
+			<view v-else class="search-end">暂无搜索记录</view>
 		</view>
 		<view class="search-item">
 			<view class="search-title"><view class="f-color">热门搜索</view></view>
@@ -26,8 +26,20 @@ import Lines from '@/components/common/Lines.vue';
 export default {
 	data() {
 		return {
-			keyword: ''
+			//搜索的关键词
+			keyword: '',
+			//搜索过的词记录
+			searchedData: []
 		};
+	},
+	//页面加载的时候
+	onLoad() {
+		uni.getStorage({
+			key: 'searchedData',
+			success: res => {
+				this.searchedData = JSON.parse(res.data);
+			}
+		});
 	},
 	//点击顶栏中的搜索按钮
 	onNavigationBarButtonTap(e) {
@@ -55,6 +67,21 @@ export default {
 				});
 			}
 			uni.hideKeyboard();
+			this.addSearch();
+		},
+		//记录最近搜索词
+		addSearch() {
+			//最近搜索过滤重复搜索词
+			let idx = this.searchedData.indexOf(this.keyword);
+			if (idx < 0) {
+				this.searchedData.unshift(this.keyword);
+			} else {
+				this.searchedData.unshift(this.searchedData.splice(idx, 1)[0]);
+			}
+			uni.setStorage({
+				key: 'searchedData',
+				data: JSON.stringify(this.searchedData)
+			});
 		}
 	},
 	components: {
@@ -77,5 +104,8 @@ export default {
 	display: inline-block;
 	border-radius: 26rpx;
 	margin: 10rpx;
+}
+.search-end {
+	text-align: center;
 }
 </style>

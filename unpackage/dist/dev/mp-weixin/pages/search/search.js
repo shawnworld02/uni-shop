@@ -160,7 +160,19 @@ __webpack_require__.r(__webpack_exports__);
 {
   data: function data() {
     return {
-      keyword: '' };
+      //搜索的关键词
+      keyword: '',
+      //搜索过的词记录
+      searchedData: [] };
+
+  },
+  //页面加载的时候
+  onLoad: function onLoad() {var _this = this;
+    uni.getStorage({
+      key: 'searchedData',
+      success: function success(res) {
+        _this.searchedData = JSON.parse(res.data);
+      } });
 
   },
   //点击顶栏中的搜索按钮
@@ -189,6 +201,21 @@ __webpack_require__.r(__webpack_exports__);
 
       }
       uni.hideKeyboard();
+      this.addSearch();
+    },
+    //记录最近搜索词
+    addSearch: function addSearch() {
+      //最近搜索过滤重复搜索词
+      var idx = this.searchedData.indexOf(this.keyword);
+      if (idx < 0) {
+        this.searchedData.unshift(this.keyword);
+      } else {
+        this.searchedData.unshift(this.searchedData.splice(idx, 1)[0]);
+      }
+      uni.setStorage({
+        key: 'searchedData',
+        data: JSON.stringify(this.searchedData) });
+
     } },
 
   components: {
