@@ -63,7 +63,7 @@ export default {
 				});
 			} else {
 				uni.navigateTo({
-					url: '/pages/search-list/search-list'
+					url: "/pages/search-list/search-list?keyword="+this.keyword+""
 				});
 			}
 			uni.hideKeyboard();
@@ -92,6 +92,14 @@ export default {
 				confirmText: '确定',
 				success: res => {
 					console.log(res);
+					if(res.confirm){
+						//清除storage
+						uni.removeStorage({
+							key:"searchedData",
+						})
+						//清除视图层
+						this.searchedData = [];
+					}
 				}
 			});
 		}

@@ -134,6 +134,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 {
+  props: {
+    keyword: String },
+
   components: {
     Lines: Lines,
     CommodityList: CommodityList },

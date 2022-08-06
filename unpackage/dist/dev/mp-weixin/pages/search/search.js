@@ -197,7 +197,7 @@ __webpack_require__.r(__webpack_exports__);
 
       } else {
         uni.navigateTo({
-          url: '/pages/search-list/search-list' });
+          url: "/pages/search-list/search-list?keyword=" + this.keyword + "" });
 
       }
       uni.hideKeyboard();
@@ -218,7 +218,7 @@ __webpack_require__.r(__webpack_exports__);
 
     },
     //清除搜索记录
-    clearHistory: function clearHistory() {
+    clearHistory: function clearHistory() {var _this2 = this;
       uni.showModal({
         title: '重要提示',
         content: '是否要清楚记录？',
@@ -226,6 +226,14 @@ __webpack_require__.r(__webpack_exports__);
         confirmText: '确定',
         success: function success(res) {
           console.log(res);
+          if (res.confirm) {
+            //清除storage
+            uni.removeStorage({
+              key: "searchedData" });
+
+            //清除视图层
+            _this2.searchedData = [];
+          }
         } });
 
     } },

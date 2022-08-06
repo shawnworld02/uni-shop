@@ -139,9 +139,31 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 {
+  data: function data() {
+    return {
+      keyword: "" };
+
+  },
   components: {
     ShopList: ShopList },
 
+  onLoad: function onLoad(e) {
+    this.keyword = e.keyword;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  },
   methods: {} };exports.default = _default;
 
 /***/ })

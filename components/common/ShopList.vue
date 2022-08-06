@@ -18,6 +18,9 @@
 import Lines from '@/components/common/Lines.vue';
 import CommodityList from '@/components/common/Commodity.vue';
 export default {
+	props: {
+		keyword: String
+	},
 	components: {
 		Lines,
 		CommodityList
@@ -71,8 +74,8 @@ export default {
 			//根据索引值取出具体哪一个title对象
 			let item = this.shopList.data[idx];
 			//如果点击的title和点过的title是同一个，切换上下箭头的状态
-			if(idx === index){
-				return item.status = item.status === 1 ? 2 : 1; 
+			if (idx === index) {
+				return (item.status = item.status === 1 ? 2 : 1);
 			}
 			//点击的是新的title
 			let newItem = this.shopList.data[index];
