@@ -17,6 +17,7 @@
 <script>
 import Lines from '@/components/common/Lines.vue';
 import CommodityList from '@/components/common/Commodity.vue';
+import $http from '@/common/api/request.js';
 export default {
 	props: {
 		keyword: String
@@ -31,40 +32,7 @@ export default {
 				currentIndex: 0,
 				data: [{ name: '价格', status: 1 }, { name: '折扣', status: 0 }, { name: '品牌', status: 0 }]
 			},
-			dataList: [
-				{
-					id: 1,
-					imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
-					name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
-					pprice: '299',
-					oprice: '59',
-					discount: '4.9'
-				},
-				{
-					id: 2,
-					imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
-					name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
-					pprice: '299',
-					oprice: '59',
-					discount: '4.9'
-				},
-				{
-					id: 3,
-					imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
-					name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
-					pprice: '299',
-					oprice: '59',
-					discount: '4.9'
-				},
-				{
-					id: 4,
-					imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
-					name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
-					pprice: '299',
-					oprice: '59',
-					discount: '4.9'
-				}
-			]
+			dataList: []
 		};
 	},
 	methods: {
@@ -85,7 +53,30 @@ export default {
 			this.shopList.currentIndex = index;
 			//新点击的title上箭头激活
 			newItem.status = 1;
+		},
+		//请求搜索数据的方法
+		getData() {
+			$http
+				.request({
+					url: '/goods/search',
+					data:{
+						name:this.keyword,
+						pprice:"desc"
+					}
+				})
+				.then((res) => {
+					this.dataList = res
+				})
+				.catch(() => {
+					uni.showToast({
+						title: '请求失败',
+						icon: 'none'
+					});
+				});
 		}
+	},
+	mounted() {
+		this.getData();
 	}
 };
 </script>

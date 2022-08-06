@@ -4139,7 +4139,12 @@ var render = function() {
                     {
                       key: item,
                       staticClass: _vm._$g("7-" + $30, "sc"),
-                      attrs: { _i: "7-" + $30 }
+                      attrs: { _i: "7-" + $30 },
+                      on: {
+                        click: function($event) {
+                          return _vm.$handleViewEvent($event)
+                        }
+                      }
                     },
                     [_vm._v(_vm._$g("7-" + $30, "t0-0"))]
                   )

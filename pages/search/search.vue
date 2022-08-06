@@ -7,7 +7,7 @@
 				<view class="iconfont icon-lajitong f-color" @tap="clearHistory"></view>
 			</view>
 			<view v-if="searchedData.length > 0">
-				<view class="search-name f-color" v-for="(item, index) in searchedData" :key="index">{{ item }}</view>
+				<view class="search-name f-color" v-for="(item, index) in searchedData" :key="index" @tap="toSearchList(item)">{{ item }}</view>
 			</view>
 			<view v-else class="search-end">暂无搜索记录</view>
 		</view>
@@ -62,9 +62,7 @@ export default {
 					icon: 'none'
 				});
 			} else {
-				uni.navigateTo({
-					url: "/pages/search-list/search-list?keyword="+this.keyword+""
-				});
+				toSearchList(this.keyword);
 			}
 			uni.hideKeyboard();
 			this.addSearch();
@@ -92,15 +90,21 @@ export default {
 				confirmText: '确定',
 				success: res => {
 					console.log(res);
-					if(res.confirm){
+					if (res.confirm) {
 						//清除storage
 						uni.removeStorage({
-							key:"searchedData",
-						})
+							key: 'searchedData'
+						});
 						//清除视图层
 						this.searchedData = [];
 					}
 				}
+			});
+		},
+		//点击搜索记录进入页面
+		toSearchList(item) {
+			uni.navigateTo({
+				url: `/pages/search-list/search-list?keyword=${item}`
 			});
 		}
 	},

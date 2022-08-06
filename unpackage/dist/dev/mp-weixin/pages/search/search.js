@@ -196,9 +196,7 @@ __webpack_require__.r(__webpack_exports__);
           icon: 'none' });
 
       } else {
-        uni.navigateTo({
-          url: "/pages/search-list/search-list?keyword=" + this.keyword + "" });
-
+        toSearchList(this.keyword);
       }
       uni.hideKeyboard();
       this.addSearch();
@@ -229,12 +227,18 @@ __webpack_require__.r(__webpack_exports__);
           if (res.confirm) {
             //清除storage
             uni.removeStorage({
-              key: "searchedData" });
+              key: 'searchedData' });
 
             //清除视图层
             _this2.searchedData = [];
           }
         } });
+
+    },
+    //点击搜索记录进入页面
+    toSearchList: function toSearchList(item) {
+      uni.navigateTo({
+        url: "/pages/search-list/search-list?keyword=".concat(item) });
 
     } },
 

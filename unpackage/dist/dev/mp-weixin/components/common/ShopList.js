@@ -114,7 +114,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Lines = function Lines() {__webpack_require__.e(/*! require.ensure | components/common/Lines */ "components/common/Lines").then((function () {return resolve(__webpack_require__(/*! @/components/common/Lines.vue */ 138));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var CommodityList = function CommodityList() {__webpack_require__.e(/*! require.ensure | components/common/Commodity */ "components/common/Commodity").then((function () {return resolve(__webpack_require__(/*! @/components/common/Commodity.vue */ 113));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -133,6 +133,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+var _request = _interopRequireDefault(__webpack_require__(/*! @/common/api/request.js */ 18));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var Lines = function Lines() {__webpack_require__.e(/*! require.ensure | components/common/Lines */ "components/common/Lines").then((function () {return resolve(__webpack_require__(/*! @/components/common/Lines.vue */ 138));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var CommodityList = function CommodityList() {__webpack_require__.e(/*! require.ensure | components/common/Commodity */ "components/common/Commodity").then((function () {return resolve(__webpack_require__(/*! @/components/common/Commodity.vue */ 113));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   props: {
     keyword: String },
@@ -147,40 +148,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
         currentIndex: 0,
         data: [{ name: '价格', status: 1 }, { name: '折扣', status: 0 }, { name: '品牌', status: 0 }] },
 
-      dataList: [
-      {
-        id: 1,
-        imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
-        name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
-        pprice: '299',
-        oprice: '59',
-        discount: '4.9' },
-
-      {
-        id: 2,
-        imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
-        name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
-        pprice: '299',
-        oprice: '59',
-        discount: '4.9' },
-
-      {
-        id: 3,
-        imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
-        name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
-        pprice: '299',
-        oprice: '59',
-        discount: '4.9' },
-
-      {
-        id: 4,
-        imgUrl: '../../static/img/1640921044-1545374753243254788-1545374753243254791-1_470x470_90.jpeg',
-        name: '风情迷人小短裙，夏季爆款，限时折扣，走过路过千万不要错过，不然会后悔一辈子！！',
-        pprice: '299',
-        oprice: '59',
-        discount: '4.9' }] };
-
-
+      dataList: [] };
 
   },
   methods: {
@@ -201,7 +169,32 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       this.shopList.currentIndex = index;
       //新点击的title上箭头激活
       newItem.status = 1;
-    } } };exports.default = _default;
+    },
+    //请求搜索数据的方法
+    getData: function getData() {var _this = this;
+      _request.default.
+      request({
+        url: '/goods/search',
+        data: {
+          name: this.keyword,
+          pprice: "desc" } }).
+
+
+      then(function (res) {
+        _this.dataList = res;
+      }).
+      catch(function () {
+        uni.showToast({
+          title: '请求失败',
+          icon: 'none' });
+
+      });
+    } },
+
+  mounted: function mounted() {
+    this.getData();
+  } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
