@@ -4,7 +4,7 @@
 		<view class="search-item">
 			<view class="search-title">
 				<view class="f-color">最近搜索</view>
-				<view class="iconfont icon-lajitong f-color"></view>
+				<view class="iconfont icon-lajitong f-color" @tap="clearHistory"></view>
 			</view>
 			<view v-if="searchedData.length > 0">
 				<view class="search-name f-color" v-for="(item, index) in searchedData" :key="index">{{ item }}</view>
@@ -81,6 +81,18 @@ export default {
 			uni.setStorage({
 				key: 'searchedData',
 				data: JSON.stringify(this.searchedData)
+			});
+		},
+		//清除搜索记录
+		clearHistory() {
+			uni.showModal({
+				title: '重要提示',
+				content: '是否要清楚记录？',
+				cancelText: '取消',
+				confirmText: '确定',
+				success: res => {
+					console.log(res);
+				}
 			});
 		}
 	},

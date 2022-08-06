@@ -216,6 +216,18 @@ __webpack_require__.r(__webpack_exports__);
         key: 'searchedData',
         data: JSON.stringify(this.searchedData) });
 
+    },
+    //清除搜索记录
+    clearHistory: function clearHistory() {
+      uni.showModal({
+        title: '重要提示',
+        content: '是否要清楚记录？',
+        cancelText: '取消',
+        confirmText: '确定',
+        success: function success(res) {
+          console.log(res);
+        } });
+
     } },
 
   components: {
