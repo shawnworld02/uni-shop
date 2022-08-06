@@ -157,23 +157,39 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
 {
   data: function data() {
-    return {};
-
+    return {
+      keyword: '' };
 
   },
+  //点击顶栏中的搜索按钮
   onNavigationBarButtonTap: function onNavigationBarButtonTap(e) {
-    if (e.float === "right") {
-      uni.navigateTo({
-        url: "/pages/search-list/search-list" });
-
-    }
+    this.search();
   },
-  methods: {},
+  //监听input输入内容
+  onNavigationBarSearchInputChanged: function onNavigationBarSearchInputChanged(e) {
+    this.keyword = e.text;
+  },
+  //监听软键盘的搜索按钮
+  onNavigationBarSearchInputConfirmed: function onNavigationBarSearchInputConfirmed() {
+    this.search();
+  },
+  methods: {
+    //判断关键词是否为空，否则跳转页面
+    search: function search() {
+      if (this.keyword === '') {
+        return uni.showToast({
+          title: '关键词不能为空',
+          icon: 'none' });
 
+      } else {
+        uni.navigateTo({
+          url: '/pages/search-list/search-list' });
+
+      }
+      uni.hideKeyboard();
+    } },
 
   components: {
     Lines: Lines } };exports.default = _default;
