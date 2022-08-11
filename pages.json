@@ -106,6 +106,7 @@
 		}, {
 			"path": "pages/details/details",
 			"style": {
+				"scrollIndicator": "none",
 				"navigationBarTitleText": "商品详情",
 				"enablePullDownRefresh": false,
 				"app-plus": {

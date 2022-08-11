@@ -19,8 +19,16 @@
 			<view><image class="details-img" src="../../static/img/3df7e2cb-2ffb-4880-aebb-cade9074aacc.jpeg" mode=""></image></view>
 			<view><image class="details-img" src="../../static/img/3df7e2cb-2ffb-4880-aebb-cade9074aacc.jpeg" mode=""></image></view>
 		</view>
+		<!-- 商品列表 -->
 		<Card cardTitle="看 了 又 看"></Card>
 		<CommodityList :dataList="dataList"></CommodityList>
+		<!-- 底部 -->
+		<view class="detail-footer">
+			<view class="iconfont icon-xiaoxizhongxin"></view>
+			<view class="iconfont icon-gouwuchekong"></view>
+			<view class="add-shopping-cart">加入购物车</view>
+			<view class="purchase">立即购买</view>
+		</view>
 	</view>
 </template>
 
@@ -96,5 +104,42 @@ swiper {
 }
 .details-img {
 	width: 100%;
+}
+.detail-footer{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 90rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #FFFFFF;
+}
+.detail-footer .iconfont{
+	width: 60rpx;
+	height: 60rpx;
+	border-radius: 100%;
+	background-color: black;
+	color: white;
+	text-align: center;
+	margin: 0 10rpx;
+}
+.add-shopping-cart{
+	margin: 0 40rpx;
+	padding: 6rpx 30rpx;
+	background-color: black;
+	color: white;
+	border-radius: 40rpx;
+}
+.purchase{
+	margin: 0 40rpx;
+	padding: 6rpx 30rpx;
+	background-color: #49BDFD;
+	color: white;
+	border-radius: 40rpx;
+}
+.details{
+	padding-bottom: 90rpx;
 }
 </style>
