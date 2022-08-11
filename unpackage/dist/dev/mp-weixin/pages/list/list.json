@@ -1,5 +1,8 @@
 {
-  "navigationBarTitleText": "分类",
+  "navigationBarTitleText": "fe分类",
+  "navigationBarBackgroundColor": "#FFFFFF",
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "lines": "/components/common/Lines"
+  }
 }

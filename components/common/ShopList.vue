@@ -30,13 +30,26 @@ export default {
 		return {
 			shopList: {
 				currentIndex: 0,
-				data: [{ name: '价格', status: 1 }, { name: '折扣', status: 0 }, { name: '品牌', status: 0 }]
+				data: [{ name: '价格', status: 1, key: 'pprice' }, { name: '折扣', status: 0, key: 'discount' }, { name: '品牌', status: 0 }]
 			},
 			dataList: []
 		};
 	},
+	computed: {
+		orderBy() {
+			//拿到当前点击的对象
+			let obj = this.shopList.data[this.shopList.currentIndex];
+			let val = obj.status === '1' ? 'desc' : 'asc';
+			return {
+				//"pprice" : "desc" || "asc"
+				[obj.key]: val
+			};
+		}
+	},
 	methods: {
 		changTab(index) {
+			//点击排序(重新请求数据)
+			this.getData();
 			//原来点击的title索引值
 			let idx = this.shopList.currentIndex;
 			//根据索引值取出具体哪一个title对象
@@ -59,13 +72,14 @@ export default {
 			$http
 				.request({
 					url: '/goods/search',
-					data:{
-						name:this.keyword,
-						pprice:"desc"
+					data: {
+						name: this.keyword,
+						//动态切换升序或降序
+						...this.orderBy
 					}
 				})
-				.then((res) => {
-					this.dataList = res
+				.then(res => {
+					this.dataList = res;
 				})
 				.catch(() => {
 					uni.showToast({

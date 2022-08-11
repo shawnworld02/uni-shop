@@ -15,8 +15,22 @@
 		{
 			"path": "pages/list/list",
 			"style": {
-				"navigationBarTitleText": "分类",
-				"enablePullDownRefresh": false
+				"navigationBarTitleText": "fe分类",
+				"navigationBarBackgroundColor": "#FFFFFF",
+				"enablePullDownRefresh": false,
+				"app-plus": {
+					"scrollIndicator": "none",
+					"titleNView": {
+						"searchInput": {
+							"align": "left",
+							"placeholder": "请输入关键字",
+							"autoFocus": true,
+							"borderRadius": "15px",
+							"backgroundColor": "#F7F7F7",
+							"placeholderColor": "#B3B3B3"
+						}
+					}
+				}
 			}
 
 		}, {

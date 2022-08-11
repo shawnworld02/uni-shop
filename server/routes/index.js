@@ -391,6 +391,89 @@ router.get("/api/index_list/3/data/1", (req, res, next) => {
 	})
 })
 
+router.get('/api/goods/list', (req, res, next) => {
+	res.json({
+		code: 0,
+		data: [{
+				id: 1,
+				name: "家居家纺",
+				data: [{
+						name: "家纺",
+						list: [{
+								id: 1,
+								name: "毛巾/浴巾",
+								imgUrl: 'file:///Users/shawnliang/Desktop/hb-project/app/static/img/首页头部图片1.jpeg'
+							},
+							{
+								id: 2,
+								name: "枕头",
+								imgUrl: 'file:///Users/shawnliang/Desktop/hb-project/app/static/img/首页头部图片1.jpeg'
+							}
+						]
+					},
+					{
+						name: "生活用品",
+						list: [{
+								id: 1,
+								name: "毛巾/浴巾",
+								imgUrl: 'file:///Users/shawnliang/Desktop/hb-project/app/static/img/首页头部图片1.jpeg'
+							},
+							{
+								id: 2,
+								name: "枕头",
+								imgUrl: 'file:///Users/shawnliang/Desktop/hb-project/app/static/img/首页头部图片1.jpeg'
+							},
+							{
+								id: 3,
+								name: "浴室用品",
+								imgUrl: 'file:///Users/shawnliang/Desktop/hb-project/app/static/img/首页头部图片1.jpeg'
+							}
+						]
+					},
+				]
+			},
+			{
+				id: 1,
+				name: "家居家纺",
+				data: [{
+						name: "家纺",
+						list: [{
+								id: 1,
+								name: "毛巾/浴巾",
+								imgUrl: 'file:///Users/shawnliang/Desktop/hb-project/app/static/img/首页头部图片1.jpeg'
+							},
+							{
+								id: 2,
+								name: "枕头",
+								imgUrl: 'file:///Users/shawnliang/Desktop/hb-project/app/static/img/首页头部图片1.jpeg'
+							}
+						]
+					},
+					{
+						name: "生活用品",
+						list: [{
+								id: 1,
+								name: "毛巾/浴巾",
+								imgUrl: 'file:///Users/shawnliang/Desktop/hb-project/app/static/img/首页头部图片1.jpeg'
+							},
+							{
+								id: 2,
+								name: "枕头",
+								imgUrl: 'file:///Users/shawnliang/Desktop/hb-project/app/static/img/首页头部图片1.jpeg'
+							},
+							{
+								id: 3,
+								name: "浴室用品",
+								imgUrl: 'file:///Users/shawnliang/Desktop/hb-project/app/static/img/首页头部图片1.jpeg'
+							}
+						]
+					},
+				]
+			}
+		]
+	})
+})
+
 router.get("/api/goods/search", (req, res, next) => {
 	//获取对象的key
 	let [goodsName, oderName] = Object.keys(req.query);
@@ -403,8 +486,8 @@ router.get("/api/goods/search", (req, res, next) => {
 			results, fields) {
 			if (error) throw error;
 			res.send({
-				code:"0",
-				data:results
+				code: "0",
+				data: results
 			})
 		})
 })
