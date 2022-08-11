@@ -5,7 +5,8 @@
     "pages/shopping-cart/shopping-cart",
     "pages/mine/mine",
     "pages/search/search",
-    "pages/search-list/search-list"
+    "pages/search-list/search-list",
+    "pages/details/details"
   ],
   "subPackages": [],
   "window": {

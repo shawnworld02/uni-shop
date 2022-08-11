@@ -103,6 +103,26 @@
 					}
 				}
 			}
+		}, {
+			"path": "pages/details/details",
+			"style": {
+				"navigationBarTitleText": "商品详情",
+				"enablePullDownRefresh": false,
+				"app-plus": {
+					"titleNView": {
+						"type":"transparent",
+						"buttons": [
+							{
+								"type":"menu"
+							},
+							{
+								"type":"share"
+							}
+						]
+					}
+				}
+			}
+
 		}
 	],
 	"globalStyle": {
