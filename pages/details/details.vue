@@ -26,18 +26,42 @@
 		<view class="detail-footer">
 			<view class="iconfont icon-xiaoxizhongxin"></view>
 			<view class="iconfont icon-gouwuchekong"></view>
-			<view class="add-shopping-cart">加入购物车</view>
-			<view class="purchase">立即购买</view>
+			<view class="add-shopping-cart" @tap="showPop">加入购物车</view>
+			<view class="purchase" @tap="showPop">立即购买</view>
 		</view>
+		<!-- 底部弹出层 -->
+		<view class="pop" v-show="isShow" @touchmove.stop.prevent=''>
+			<!-- 蒙层 -->
+			<view class="pop-mask" @tap="hidePop"></view>
+			<!-- 内容块 -->
+			<view class="pop-box" :animation="animationData">
+				<view >
+					<view>
+						<image class="pop-img" src="../../static/img/0f2b8182-0c81-49bf-b345-aa86b1efbac2_470x470_90.jpeg" mode=""></image>
+					</view>
+					<view class="pop-num">
+						<view>购买数量</view>
+						<UniNumberBox :min='1'></UniNumberBox>
+					</view>
+					<view class="pop-sub">
+						确定
+					</view>
+				</view>
+			</view>
+		</view>
+		w
 	</view>
 </template>
 
 <script>
 import Card from '@/components/common/Card.vue';
 import CommodityList from '@/components/common/CommodityList.vue';
+import UniNumberBox from '@/components/uni/uni-number-box/components/uni-number-box/uni-number-box.vue'
 export default {
 	data() {
 		return {
+			animationData: {},
+			isShow: false,
 			swiperList: [
 				{ imgUrl: '../../static/img/0f2b8182-0c81-49bf-b345-aa86b1efbac2_470x470_90.jpeg' },
 				{ imgUrl: '../../static/img/0f2b8182-0c81-49bf-b345-aa86b1efbac2_470x470_90.jpeg' },
@@ -81,9 +105,34 @@ export default {
 	},
 	components: {
 		Card,
-		CommodityList
+		CommodityList,
+		UniNumberBox
 	},
-	methods: {}
+	methods: {
+		showPop() {
+			var animation = uni.createAnimation({
+				duration: 200,
+			});
+			animation.translateY(600).step()
+			this.animationData = animation.export()
+			this.isShow = true;
+			setTimeout(()=>{
+				animation.translateY(0).step()
+				this.animationData = animation.export()
+			},200)
+		},
+		hidePop() {
+			var animation = uni.createAnimation({
+				duration: 200,
+			});
+			animation.translateY(600).step()
+			this.animationData = animation.export()
+			setTimeout(()=>{
+				animation.translateY(0).step()
+				this.isShow = false;
+			},200)
+		}
+	}
 };
 </script>
 
@@ -105,7 +154,7 @@ swiper {
 .details-img {
 	width: 100%;
 }
-.detail-footer{
+.detail-footer {
 	position: fixed;
 	left: 0;
 	bottom: 0;
@@ -114,9 +163,9 @@ swiper {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: #FFFFFF;
+	background-color: #ffffff;
 }
-.detail-footer .iconfont{
+.detail-footer .iconfont {
 	width: 60rpx;
 	height: 60rpx;
 	border-radius: 100%;
@@ -125,21 +174,59 @@ swiper {
 	text-align: center;
 	margin: 0 10rpx;
 }
-.add-shopping-cart{
+.add-shopping-cart {
 	margin: 0 40rpx;
 	padding: 6rpx 30rpx;
 	background-color: black;
 	color: white;
 	border-radius: 40rpx;
 }
-.purchase{
+.purchase {
 	margin: 0 40rpx;
 	padding: 6rpx 30rpx;
-	background-color: #49BDFD;
+	background-color: #49bdfd;
 	color: white;
 	border-radius: 40rpx;
 }
-.details{
+.details {
 	padding-bottom: 90rpx;
+}
+.pop {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+}
+.pop-mask {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+.pop-box {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #FFFFFF;
+}
+.pop-img{
+	width: 260rpx;
+	height: 260rpx;
+}
+.pop-sub{
+	line-height: 80rpx;
+	background-color: #49bdfd;
+	color: #FFFFFF;
+	text-align: center;
+}
+.pop-num{
+	padding: 20rpx;
+	display: flex;
+	justify-content: space-around;
 }
 </style>
