@@ -3,14 +3,14 @@
 		<Lines></Lines>
 		<view class="list">
 			<!-- 左侧移动 -->
-			<scroll-view scroll-y="true" class="list-left">
-				<view v-for="i in 50" class="left-item">
-					<view class="left-name">{{ i }}</view>
+			<scroll-view scroll-y="true" class="list-left" :style="'height:' + clientHeight + 'px;'">
+				<view v-for="i in 50" class="left-item" @tap="clickLeft(i)">
+					<view class="left-name" :class="activeIndex === i ? 'left-name-active' : ''">{{ i }}</view>
 				</view>
 			</scroll-view>
 
 			<!-- 右侧滑动 -->
-			<scroll-view scroll-y="true" class="list-right">
+			<scroll-view scroll-y="true" class="list-right" :style="'height:' + clientHeight + 'px;'">
 				<view class="right-block">
 					<view class="list-title">家纺</view>
 					<view class="right-content">
@@ -62,9 +62,37 @@ export default {
 		Lines
 	},
 	data() {
-		return {};
+		return {
+			clientHeight: 0,
+			activeIndex: 1
+		};
 	},
-	methods: {}
+	//获取可视高度
+	onReady() {
+		uni.getSystemInfo({
+			success: res => {
+				this.clientHeight = res.windowHeight - this.getContentBlockHeight();
+			}
+		});
+	},
+	methods: {
+		//获取可视区域高度[兼容]
+		getContentBlockHeight() {
+			const res = uni.getSystemInfoSync();
+			const system = res.platform;
+			if (system === 'ios') {
+				return 44 + res.statusBarHeight;
+			} else if (system === 'android') {
+				return 48 + res.statusBarHeight;
+			} else {
+				return 0;
+			}
+		},
+		//点击左边的tab
+		clickLeft(index) {
+			this.activeIndex = index;
+		}
+	}
 };
 </script>
 
@@ -94,16 +122,16 @@ export default {
 	background-color: #ffffff;
 }
 
-.list-title{
+.list-title {
 	font-weight: bold;
 	padding: 30rpx 0;
 }
-.right-content{
+.right-content {
 	display: flex;
 	flex-wrap: wrap;
 }
 
-.right-item{
+.right-item {
 	width: 150rpx;
 	display: flex;
 	flex-direction: column;
@@ -112,11 +140,11 @@ export default {
 	padding: 10rpx;
 }
 
-.right-name{
+.right-name {
 	padding: 16rpx 0;
 }
 
-.right-img{
+.right-img {
 	width: 150rpx;
 	height: 150rpx;
 }
