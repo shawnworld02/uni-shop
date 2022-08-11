@@ -4,51 +4,23 @@
 		<view class="list">
 			<!-- 左侧移动 -->
 			<scroll-view scroll-y="true" class="list-left" :style="'height:' + clientHeight + 'px;'">
-				<view v-for="i in 50" class="left-item" @tap="clickLeft(i)">
-					<view class="left-name" :class="activeIndex === i ? 'left-name-active' : ''">{{ i }}</view>
+				<view v-for="(item, index) in leftData" @tap="clickLeft(index,item.id)" :key="index">
+					<view class="left-name" :class="activeIndex === index ? 'left-name-active' : ''">{{ item.name }}</view>
 				</view>
 			</scroll-view>
 
 			<!-- 右侧滑动 -->
 			<scroll-view scroll-y="true" class="list-right" :style="'height:' + clientHeight + 'px;'">
-				<view class="right-block">
-					<view class="list-title">家纺</view>
-					<view class="right-content">
-						<view class="right-item">
-							<image class="right-img" src="../../static/img/鞋.jpeg" mode=""></image>
-							<view clas="right-name">毛巾</view>
+				<view class="right-block" v-for="(item, index) in rightData" :key="index">
+					<block v-for="(k,i) in item" :key="i">
+						<view class="list-title">{{k.name}}</view>
+						<view class="right-content">
+							<view class="right-item" v-for="(j,idx) in k.list" :key="idx">
+								<image class="right-img" :src="j.imgUrl" mode=""></image>
+								<view clas="right-name">{{j.name}}</view>
+							</view>
 						</view>
-						<view class="right-item">
-							<image class="right-img" src="../../static/img/鞋.jpeg" mode=""></image>
-							<view clas="right-name">毛巾</view>
-						</view>
-						<view class="right-item">
-							<image class="right-img" src="../../static/img/鞋.jpeg" mode=""></image>
-							<view clas="right-name">毛巾</view>
-						</view>
-						<view class="right-item">
-							<image class="right-img" src="../../static/img/鞋.jpeg" mode=""></image>
-							<view clas="right-name">毛巾</view>
-						</view>
-					</view>
-				</view>
-				<view class="right-block">
-					<view class="list-title">家纺</view>
-					<view class="right-content">
-						<view class="right-item">
-							<image class="right-img" src="../../static/img/鞋.jpeg" mode=""></image>
-							<view clas="right-name">毛巾</view>
-						</view>
-					</view>
-				</view>
-				<view class="right-block">
-					<view class="list-title">家纺</view>
-					<view class="right-content">
-						<view class="right-item">
-							<image class="right-img" src="../../static/img/鞋.jpeg" mode=""></image>
-							<view clas="right-name">毛巾</view>
-						</view>
-					</view>
+					</block>
 				</view>
 			</scroll-view>
 		</view>
@@ -57,6 +29,7 @@
 
 <script>
 import Lines from '@/components/common/Lines.vue';
+import $http from '@/common/api/request.js';
 export default {
 	components: {
 		Lines
@@ -64,7 +37,11 @@ export default {
 	data() {
 		return {
 			clientHeight: 0,
-			activeIndex: 1
+			activeIndex: 0,
+			//左侧数据
+			leftData: [],
+			//右侧的数据
+			rightData: []
 		};
 	},
 	//获取可视高度
@@ -75,7 +52,42 @@ export default {
 			}
 		});
 	},
+	onLoad() {
+		this.getData();
+	},
 	methods: {
+		//请求数据方法
+		getData(id) {
+			if (id === this.activeIndex + 1) {
+				return;
+			}
+			$http
+				.request({
+					url: '/goods/list'
+				})
+				.then(res => {
+					let leftData = [];
+					let rightData = [];
+					res.forEach(v => {
+						leftData.push({
+							id: v.id,
+							name: v.name
+						});
+						//如果点击的id值相同
+						if (v.id === this.activeIndex + 1) {
+							rightData.push(v.data);
+						}
+					});
+					this.leftData = leftData;
+					this.rightData = rightData;
+				})
+				.catch(err => {
+					uni.showToast({
+						title: '请求失败',
+						icon: 'none'
+					});
+				});
+		},
 		//获取可视区域高度[兼容]
 		getContentBlockHeight() {
 			const res = uni.getSystemInfoSync();
@@ -89,7 +101,8 @@ export default {
 			}
 		},
 		//点击左边的tab
-		clickLeft(index) {
+		clickLeft(index,id) {
+			this.getData(id);
 			this.activeIndex = index;
 		}
 	}

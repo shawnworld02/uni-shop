@@ -3752,11 +3752,11 @@ var render = function() {
               style: _vm._$g(3, "s"),
               attrs: { "scroll-y": "true", _i: 3 }
             },
-            _vm._l(50, function(i, $10, $20, $30) {
+            _vm._l(_vm._$g(4, "f"), function(item, index, $20, $30) {
               return _c(
                 "uni-view",
                 {
-                  staticClass: _vm._$g("4-" + $30, "sc"),
+                  key: item,
                   attrs: { _i: "4-" + $30 },
                   on: {
                     click: function($event) {
@@ -3787,185 +3787,93 @@ var render = function() {
               style: _vm._$g(6, "s"),
               attrs: { "scroll-y": "true", _i: 6 }
             },
-            [
-              _c(
+            _vm._l(_vm._$g(7, "f"), function(item, index, $21, $31) {
+              return _c(
                 "uni-view",
-                { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
+                {
+                  key: item,
+                  staticClass: _vm._$g("7-" + $31, "sc"),
+                  attrs: { _i: "7-" + $31 }
+                },
                 [
-                  _c(
-                    "uni-view",
-                    { staticClass: _vm._$g(8, "sc"), attrs: { _i: 8 } },
-                    [_vm._v("家纺")]
-                  ),
-                  _c(
-                    "uni-view",
-                    { staticClass: _vm._$g(9, "sc"), attrs: { _i: 9 } },
-                    [
+                  _vm._l(_vm._$g(8 + "-" + $31, "f"), function(k, i, $22, $32) {
+                    return [
                       _c(
                         "uni-view",
-                        { staticClass: _vm._$g(10, "sc"), attrs: { _i: 10 } },
-                        [
-                          _c("v-uni-image", {
-                            staticClass: _vm._$g(11, "sc"),
-                            attrs: {
-                              src: _vm._$g(11, "a-src"),
-                              mode: "",
-                              _i: 11
-                            }
-                          }),
-                          _c(
-                            "uni-view",
-                            { attrs: { clas: "right-name", _i: 12 } },
-                            [_vm._v("毛巾")]
-                          )
-                        ],
-                        1
+                        {
+                          key: k["k0"],
+                          staticClass: _vm._$g("9-" + $31 + "-" + $32, "sc"),
+                          attrs: { _i: "9-" + $31 + "-" + $32 }
+                        },
+                        [_vm._v(_vm._$g("9-" + $31 + "-" + $32, "t0-0"))]
                       ),
                       _c(
                         "uni-view",
-                        { staticClass: _vm._$g(13, "sc"), attrs: { _i: 13 } },
-                        [
-                          _c("v-uni-image", {
-                            staticClass: _vm._$g(14, "sc"),
-                            attrs: {
-                              src: _vm._$g(14, "a-src"),
-                              mode: "",
-                              _i: 14
-                            }
-                          }),
-                          _c(
-                            "uni-view",
-                            { attrs: { clas: "right-name", _i: 15 } },
-                            [_vm._v("毛巾")]
-                          )
-                        ],
-                        1
-                      ),
-                      _c(
-                        "uni-view",
-                        { staticClass: _vm._$g(16, "sc"), attrs: { _i: 16 } },
-                        [
-                          _c("v-uni-image", {
-                            staticClass: _vm._$g(17, "sc"),
-                            attrs: {
-                              src: _vm._$g(17, "a-src"),
-                              mode: "",
-                              _i: 17
-                            }
-                          }),
-                          _c(
-                            "uni-view",
-                            { attrs: { clas: "right-name", _i: 18 } },
-                            [_vm._v("毛巾")]
-                          )
-                        ],
-                        1
-                      ),
-                      _c(
-                        "uni-view",
-                        { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
-                        [
-                          _c("v-uni-image", {
-                            staticClass: _vm._$g(20, "sc"),
-                            attrs: {
-                              src: _vm._$g(20, "a-src"),
-                              mode: "",
-                              _i: 20
-                            }
-                          }),
-                          _c(
-                            "uni-view",
-                            { attrs: { clas: "right-name", _i: 21 } },
-                            [_vm._v("毛巾")]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(22, "sc"), attrs: { _i: 22 } },
-                [
-                  _c(
-                    "uni-view",
-                    { staticClass: _vm._$g(23, "sc"), attrs: { _i: 23 } },
-                    [_vm._v("家纺")]
-                  ),
-                  _c(
-                    "uni-view",
-                    { staticClass: _vm._$g(24, "sc"), attrs: { _i: 24 } },
-                    [
-                      _c(
-                        "uni-view",
-                        { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
-                        [
-                          _c("v-uni-image", {
-                            staticClass: _vm._$g(26, "sc"),
-                            attrs: {
-                              src: _vm._$g(26, "a-src"),
-                              mode: "",
-                              _i: 26
-                            }
-                          }),
-                          _c(
-                            "uni-view",
-                            { attrs: { clas: "right-name", _i: 27 } },
-                            [_vm._v("毛巾")]
-                          )
-                        ],
+                        {
+                          key: k["k1"],
+                          staticClass: _vm._$g("10-" + $31 + "-" + $32, "sc"),
+                          attrs: { _i: "10-" + $31 + "-" + $32 }
+                        },
+                        _vm._l(
+                          _vm._$g(11 + "-" + $31 + "-" + $32, "f"),
+                          function(j, idx, $23, $33) {
+                            return _c(
+                              "uni-view",
+                              {
+                                key: j,
+                                staticClass: _vm._$g(
+                                  "11-" + $31 + "-" + $32 + "-" + $33,
+                                  "sc"
+                                ),
+                                attrs: {
+                                  _i: "11-" + $31 + "-" + $32 + "-" + $33
+                                }
+                              },
+                              [
+                                _c("v-uni-image", {
+                                  staticClass: _vm._$g(
+                                    "12-" + $31 + "-" + $32 + "-" + $33,
+                                    "sc"
+                                  ),
+                                  attrs: {
+                                    src: _vm._$g(
+                                      "12-" + $31 + "-" + $32 + "-" + $33,
+                                      "a-src"
+                                    ),
+                                    mode: "",
+                                    _i: "12-" + $31 + "-" + $32 + "-" + $33
+                                  }
+                                }),
+                                _c(
+                                  "uni-view",
+                                  {
+                                    attrs: {
+                                      clas: "right-name",
+                                      _i: "13-" + $31 + "-" + $32 + "-" + $33
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._$g(
+                                        "13-" + $31 + "-" + $32 + "-" + $33,
+                                        "t0-0"
+                                      )
+                                    )
+                                  ]
+                                )
+                              ],
+                              1
+                            )
+                          }
+                        ),
                         1
                       )
-                    ],
-                    1
-                  )
+                    ]
+                  })
                 ],
-                1
-              ),
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(28, "sc"), attrs: { _i: 28 } },
-                [
-                  _c(
-                    "uni-view",
-                    { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
-                    [_vm._v("家纺")]
-                  ),
-                  _c(
-                    "uni-view",
-                    { staticClass: _vm._$g(30, "sc"), attrs: { _i: 30 } },
-                    [
-                      _c(
-                        "uni-view",
-                        { staticClass: _vm._$g(31, "sc"), attrs: { _i: 31 } },
-                        [
-                          _c("v-uni-image", {
-                            staticClass: _vm._$g(32, "sc"),
-                            attrs: {
-                              src: _vm._$g(32, "a-src"),
-                              mode: "",
-                              _i: 32
-                            }
-                          }),
-                          _c(
-                            "uni-view",
-                            { attrs: { clas: "right-name", _i: 33 } },
-                            [_vm._v("毛巾")]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
+                2
               )
-            ],
+            }),
             1
           )
         ],

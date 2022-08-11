@@ -402,12 +402,12 @@ router.get('/api/goods/list', (req, res, next) => {
 						list: [{
 								id: 1,
 								name: "毛巾/浴巾",
-								imgUrl: 'file:///Users/shawnliang/Desktop/hb-project/app/static/img/首页头部图片1.jpeg'
+								imgUrl: '../../static/img/鞋.jpeg'
 							},
 							{
 								id: 2,
 								name: "枕头",
-								imgUrl: 'file:///Users/shawnliang/Desktop/hb-project/app/static/img/首页头部图片1.jpeg'
+								imgUrl: '../../static/img/鞋.jpeg'
 							}
 						]
 					},
@@ -416,36 +416,36 @@ router.get('/api/goods/list', (req, res, next) => {
 						list: [{
 								id: 1,
 								name: "毛巾/浴巾",
-								imgUrl: 'file:///Users/shawnliang/Desktop/hb-project/app/static/img/首页头部图片1.jpeg'
+								imgUrl: '../../static/img/鞋.jpeg'
 							},
 							{
 								id: 2,
 								name: "枕头",
-								imgUrl: 'file:///Users/shawnliang/Desktop/hb-project/app/static/img/首页头部图片1.jpeg'
+								imgUrl: '../../static/img/鞋.jpeg'
 							},
 							{
 								id: 3,
 								name: "浴室用品",
-								imgUrl: 'file:///Users/shawnliang/Desktop/hb-project/app/static/img/首页头部图片1.jpeg'
+								imgUrl: '../../static/img/鞋.jpeg'
 							}
 						]
 					},
 				]
 			},
 			{
-				id: 1,
+				id: 2,
 				name: "家居家纺",
 				data: [{
 						name: "家纺",
 						list: [{
 								id: 1,
 								name: "毛巾/浴巾",
-								imgUrl: 'file:///Users/shawnliang/Desktop/hb-project/app/static/img/首页头部图片1.jpeg'
+								imgUrl: '../../static/img/鞋.jpeg'
 							},
 							{
 								id: 2,
 								name: "枕头",
-								imgUrl: 'file:///Users/shawnliang/Desktop/hb-project/app/static/img/首页头部图片1.jpeg'
+								imgUrl: '../../static/img/鞋.jpeg'
 							}
 						]
 					},
@@ -454,17 +454,17 @@ router.get('/api/goods/list', (req, res, next) => {
 						list: [{
 								id: 1,
 								name: "毛巾/浴巾",
-								imgUrl: 'file:///Users/shawnliang/Desktop/hb-project/app/static/img/首页头部图片1.jpeg'
+								imgUrl: '../../static/img/鞋.jpeg'
 							},
 							{
 								id: 2,
 								name: "枕头",
-								imgUrl: 'file:///Users/shawnliang/Desktop/hb-project/app/static/img/首页头部图片1.jpeg'
+								imgUrl: '../../static/img/鞋.jpeg'
 							},
 							{
 								id: 3,
 								name: "浴室用品",
-								imgUrl: 'file:///Users/shawnliang/Desktop/hb-project/app/static/img/首页头部图片1.jpeg'
+								imgUrl: '../../static/img/鞋.jpeg'
 							}
 						]
 					},
