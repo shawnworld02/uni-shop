@@ -4232,11 +4232,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
+try {
+  components = {
+    uniNavBar: __webpack_require__(/*! @/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-nav-bar.vue */ 5)
+      .default
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("uni-view", { attrs: { _i: 0 } }, [_vm._v("购物车")])
+  return _c(
+    "uni-view",
+    { staticClass: _vm._$g(0, "sc"), attrs: { _i: 0 } },
+    [
+      _c("uni-nav-bar", {
+        attrs: { _i: 1 },
+        on: {
+          clickRight: function($event) {
+            return _vm.$handleViewEvent($event)
+          }
+        }
+      })
+    ],
+    1
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -4268,8 +4304,8 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
-
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+var _uniNavBar = _interopRequireDefault(__webpack_require__(/*! @/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-nav-bar.vue */ 5));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
 
   data: function data() {
@@ -4277,7 +4313,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       wxsProps: {} };
 
   },
-  components: {} };exports.default = _default;
+  components: {
+    'uniNavBar': _uniNavBar.default } };exports.default = _default;
 
 /***/ }),
 /* 127 */
@@ -5130,25 +5167,18 @@ var render = function() {
             _i: 1
           }
         },
-        _vm._l(_vm._$g(2, "f"), function(item, index, $20, $30) {
-          return _c(
+        [
+          _c(
             "v-uni-swiper-item",
-            { key: item, attrs: { _i: "2-" + $30 } },
+            { attrs: { _i: 2 } },
             [
               _c(
                 "uni-view",
-                {
-                  staticClass: _vm._$g("3-" + $30, "sc"),
-                  attrs: { _i: "3-" + $30 }
-                },
+                { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } },
                 [
                   _c("v-uni-image", {
-                    staticClass: _vm._$g("4-" + $30, "sc"),
-                    attrs: {
-                      src: _vm._$g("4-" + $30, "a-src"),
-                      mode: "",
-                      _i: "4-" + $30
-                    }
+                    staticClass: _vm._$g(4, "sc"),
+                    attrs: { src: _vm._$g(4, "a-src"), mode: "", _i: 4 }
                   })
                 ],
                 1
@@ -5156,7 +5186,7 @@ var render = function() {
             ],
             1
           )
-        }),
+        ],
         1
       ),
       _c(
@@ -5164,13 +5194,13 @@ var render = function() {
         { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
         [
           _c("uni-view", { staticClass: _vm._$g(6, "sc"), attrs: { _i: 6 } }, [
-            _vm._v("¥399.00")
+            _vm._v("¥" + _vm._$g(6, "t0-0"))
           ]),
           _c("uni-view", { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } }, [
-            _vm._v("¥599.00")
+            _vm._v("¥" + _vm._$g(7, "t0-0"))
           ]),
           _c("uni-view", { staticClass: _vm._$g(8, "sc"), attrs: { _i: 8 } }, [
-            _vm._v("这是非常酷炫牛逼的衬衫！！！！")
+            _vm._v(_vm._$g(8, "t0-0"))
           ])
         ],
         1
@@ -5701,7 +5731,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 16);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\nuni-swiper[data-v-2a7180dc] {\n\twidth: 100%;\n\theight: 700rpx;\n}\n.swiper-img[data-v-2a7180dc] {\n\twidth: 100%;\n\theight: 700rpx;\n}\n.detail-goods[data-v-2a7180dc] {\n\ttext-align: center;\n\tfont-weight: bold;\n\tfont-size: 36rpx;\n\tpadding: 10rpx 0;\n}\n.details-img[data-v-2a7180dc] {\n\twidth: 100%;\n}\n.detail-footer[data-v-2a7180dc] {\n\tposition: fixed;\n\tleft: 0;\n\tbottom: 0;\n\twidth: 100%;\n\theight: 90rpx;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\tbackground-color: #ffffff;\n}\n.detail-footer .iconfont[data-v-2a7180dc] {\n\twidth: 60rpx;\n\theight: 60rpx;\n\tborder-radius: 100%;\n\tbackground-color: black;\n\tcolor: white;\n\ttext-align: center;\n\tmargin: 0 10rpx;\n}\n.add-shopping-cart[data-v-2a7180dc] {\n\tmargin: 0 40rpx;\n\tpadding: 6rpx 30rpx;\n\tbackground-color: black;\n\tcolor: white;\n\tborder-radius: 40rpx;\n}\n.purchase[data-v-2a7180dc] {\n\tmargin: 0 40rpx;\n\tpadding: 6rpx 30rpx;\n\tbackground-color: #49bdfd;\n\tcolor: white;\n\tborder-radius: 40rpx;\n}\n.details[data-v-2a7180dc] {\n\tpadding-bottom: 90rpx;\n}\n.pop[data-v-2a7180dc] {\n\tposition: fixed;\n\tleft: 0;\n\ttop: 0;\n\twidth: 100%;\n\theight: 100%;\n\tz-index: 9999;\n}\n.pop-mask[data-v-2a7180dc] {\n\tposition: absolute;\n\tleft: 0;\n\ttop: 0;\n\twidth: 100%;\n\theight: 100%;\n\tbackground-color: rgba(0, 0, 0, 0.3);\n}\n.pop-box[data-v-2a7180dc] {\n\tposition: absolute;\n\tleft: 0;\n\tbottom: 0;\n\twidth: 100%;\n\tbackground-color: #FFFFFF;\n}\n.pop-img[data-v-2a7180dc]{\n\twidth: 260rpx;\n\theight: 260rpx;\n}\n.pop-sub[data-v-2a7180dc]{\n\tline-height: 80rpx;\n\tbackground-color: #49bdfd;\n\tcolor: #FFFFFF;\n\ttext-align: center;\n}\n.pop-num[data-v-2a7180dc]{\n\tpadding: 20rpx;\n\tdisplay: flex;\n\tjustify-content: space-around;\n}\n", ""]);
+exports.push([module.i, "\nuni-swiper[data-v-2a7180dc] {\n\twidth: 100%;\n\theight: 700rpx;\n}\n.swiper-img[data-v-2a7180dc] {\n\twidth: 100%;\n\theight: 700rpx;\n}\n.detail-goods[data-v-2a7180dc] {\n\ttext-align: center;\n\tfont-weight: bold;\n\tfont-size: 36rpx;\n\tpadding: 10rpx 0;\n}\n.details-img[data-v-2a7180dc] {\n\twidth: 100%;\n}\n.detail-footer[data-v-2a7180dc] {\n\tposition: fixed;\n\tleft: 0;\n\tbottom: 0;\n\twidth: 100%;\n\theight: 90rpx;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\tbackground-color: #ffffff;\n}\n.detail-footer .iconfont[data-v-2a7180dc] {\n\twidth: 60rpx;\n\theight: 60rpx;\n\tborder-radius: 100%;\n\tbackground-color: black;\n\tcolor: white;\n\ttext-align: center;\n\tmargin: 0 10rpx;\n}\n.add-shopping-cart[data-v-2a7180dc] {\n\tmargin: 0 40rpx;\n\tpadding: 6rpx 30rpx;\n\tbackground-color: black;\n\tcolor: white;\n\tborder-radius: 40rpx;\n}\n.purchase[data-v-2a7180dc] {\n\tmargin: 0 40rpx;\n\tpadding: 6rpx 30rpx;\n\tbackground-color: #49bdfd;\n\tcolor: white;\n\tborder-radius: 40rpx;\n}\n.details[data-v-2a7180dc] {\n\tpadding-bottom: 90rpx;\n}\n.pop[data-v-2a7180dc] {\n\tposition: fixed;\n\tleft: 0;\n\ttop: 0;\n\twidth: 100%;\n\theight: 100%;\n\tz-index: 9999;\n}\n.pop-mask[data-v-2a7180dc] {\n\tposition: absolute;\n\tleft: 0;\n\ttop: 0;\n\twidth: 100%;\n\theight: 100%;\n\tbackground-color: rgba(0, 0, 0, 0.3);\n}\n.pop-box[data-v-2a7180dc] {\n\tposition: absolute;\n\tleft: 0;\n\tbottom: 0;\n\twidth: 100%;\n\tbackground-color: #ffffff;\n}\n.pop-img[data-v-2a7180dc] {\n\twidth: 260rpx;\n\theight: 260rpx;\n}\n.pop-sub[data-v-2a7180dc] {\n\tline-height: 80rpx;\n\tbackground-color: #49bdfd;\n\tcolor: #ffffff;\n\ttext-align: center;\n}\n.pop-num[data-v-2a7180dc] {\n\tpadding: 20rpx;\n\tdisplay: flex;\n\tjustify-content: space-around;\n}\n", ""]);
 // Exports
 module.exports = exports;
 

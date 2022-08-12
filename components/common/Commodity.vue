@@ -1,10 +1,10 @@
 <template>
-	<view class="commodity" :style="'flex-wrap:' +wrap+';'">
+	<view class="commodity" :style="'flex-wrap:' + wrap + ';'">
 		<!-- 单个商品组件 -->
-		<view class="commodity-item" v-for="(item, index) in dataList" :key="index" :style="'width:'+itemWidth+';'" @tap="goToDetails">
-			<image class="commodity-img" :src="item.imgUrl" mode="" :style="'height:'+bigH+';'"></image>
+		<view class="commodity-item" v-for="(item, index) in dataList" :key="index" :style="'width:' + itemWidth + ';'" @tap="goToDetails(item.id)">
+			<image class="commodity-img" :src="item.imgUrl" mode="" :style="'height:' + bigH + ';'"></image>
 			<view class="commodity-content">
-				<text class="commodity-name" :style="'font-size:'+nameSize+';'">{{ item.name }}</text>
+				<text class="commodity-name" :style="'font-size:' + nameSize + ';'">{{ item.name }}</text>
 				<view>
 					<text class="pprice">¥{{ item.pprice }}</text>
 					<text class="oprice">¥{{ item.oprice }}</text>
@@ -21,31 +21,31 @@ export default {
 		//数据
 		dataList: Array,
 		//宽度
-		itemWidth:{
-			type:String,
-			default:'375rpx'
+		itemWidth: {
+			type: String,
+			default: '375rpx'
 		},
 		//高度
-		bigH:{
-			type:String,
-			default:'375rpx'
+		bigH: {
+			type: String,
+			default: '375rpx'
 		},
 		//是否换行
-		wrap:{
-			type:String,
-			default:'wrap'
+		wrap: {
+			type: String,
+			default: 'wrap'
 		},
-		//商品文字大小	
-		nameSize:{
-			type:String,
-			default:'26rpx'
+		//商品文字大小
+		nameSize: {
+			type: String,
+			default: '26rpx'
 		}
 	},
-	methods:{
-		goToDetails(){
+	methods: {
+		goToDetails(id) {
 			uni.navigateTo({
-				url:'../../pages/details/details'
-			})
+				url: '../../pages/details/details?id='+id+''
+			});
 		}
 	}
 };
