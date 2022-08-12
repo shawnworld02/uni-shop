@@ -108,6 +108,12 @@ export default {
 		CommodityList,
 		UniNumberBox
 	},
+	onBackPress(){
+		if(this.isShow){
+			this.hidePop();
+			return true;
+		}
+	},
 	methods: {
 		showPop() {
 			var animation = uni.createAnimation({
